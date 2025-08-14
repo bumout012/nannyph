@@ -21,18 +21,32 @@
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-T3H6DRN4');</script>
+
+  <style>
+    body{font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;margin:0;padding:0;background:#f8f8f6;color:#1f2937}
+    .container{max-width:1000px;margin:0 auto;padding:20px}
+    .site-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid #e5e7eb;background:#fff;position:sticky;top:0;z-index:10}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand .logo{height:40px;width:auto;border-radius:6px}
+    .nav a{margin-left:12px;text-decoration:none;color:#0a66c2}
+    .card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0}
+    label{display:block;margin:8px 0 4px}
+    input,textarea{width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px}
+    button,.button{background:#0a66c2;color:#fff;border:0;border-radius:10px;padding:12px 16px;cursor:pointer;text-decoration:none;display:inline-block}
+    .muted{color:#6b7280}
+  </style>
 </head>
 <body>
   <!-- GTM (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H6DRN4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H6DRN4"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <header class="site-header container">
+  <header class="site-header">
     <div class="brand">
       <img class="logo" src="logo.png" alt="NannyProvider.PH" onerror="this.style.display='none'">
       <strong>NannyProvider.PH</strong>
     </div>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰</button>
-    <nav id="site-nav" class="nav">
+    <nav class="nav">
       <a href="custom-form.html">Form</a>
       <a href="welcome.html">Home</a>
       <a href="about.html">About</a>
@@ -44,71 +58,103 @@
   <main class="container">
     <section class="card">
       <h1>Application Form</h1>
-      <p class="muted">*Lahat ng fields ay required.</p>
+      <p class="muted">*Lahat ng required ay may “*”.</p>
 
-      <form id="np-form" action="thank-you.html" method="GET" novalidate>
-        <!-- Name -->
-        <label for="name"><strong>Pangalan / Name *</strong></label>
-        <input id="name" name="name" type="text" required placeholder="Juan Dela Cruz" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px;margin:6px 0 14px;">
+      <!-- Section 1: Looking for a maid -->
+      <form id="maid-form" class="card" style="margin-top:16px;">
+        <h2>If you are looking for a maid, please fill up the details below.</h2>
 
-        <!-- Email -->
-        <label for="email"><strong>Email *</strong></label>
-        <input id="email" name="email" type="email" required placeholder="you@example.com" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px;margin:6px 0 14px;">
+        <label><strong>Name *</strong></label>
+        <input type="text" name="name" required>
 
-        <!-- Phone -->
-        <label for="phone"><strong>Phone Number *</strong></label>
-        <input id="phone" name="phone" type="tel" required inputmode="tel"
-               pattern="^[0-9+()\-\s]{7,}$"
-               placeholder="09xxxxxxxxx / +63 9xx xxx xxxx"
-               style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px;margin:6px 0 14px;">
+        <label><strong>Phone *</strong></label>
+        <input type="tel" name="phone" required inputmode="tel" pattern="^[0-9+()\-\s]{7,}$" placeholder="09xxxxxxxxx / +63 9xx xxx xxxx">
 
-        <!-- Intent (radio) -->
-        <fieldset style="border:1px solid #e5e7eb;border-radius:10px;padding:12px;margin:8px 0 16px;">
-          <legend><strong>Layunin *</strong></legend>
-          <label style="display:block;margin:6px 0;">
-            <input type="radio" name="intent" value="nag-hahanap-ng-yaya" required>
-            Ako ay nag hahanap ng yaya.
-          </label>
-          <label style="display:block;margin:6px 0;">
-            <input type="radio" name="intent" value="nag-hahanap-ng-ma-papasukan" required>
-            Ako ay nag hahanap ng mapapasukan.
-          </label>
-        </fieldset>
+        <label><strong>Email *</strong></label>
+        <input type="email" name="email" required placeholder="you@example.com">
 
-        <!-- Comments -->
-        <label for="comments"><strong>Iba pang komento / Other comments</strong></label>
-        <textarea id="comments" name="comments" rows="5" placeholder="Ilagay ang karagdagang detalye dito…" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px;margin:6px 0 16px;"></textarea>
+        <label><strong>Other comments</strong></label>
+        <textarea name="comments" rows="4"></textarea>
 
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <button type="submit" class="button">Submit</button>
-          <a class="button" href="welcome.html" id="skip-btn" style="background:#6b7280;">Skip &amp; Go to Home</a>
-        </div>
+        <button type="submit" class="button">Submit (Looking for a maid)</button>
       </form>
+
+      <!-- Section 2: Jobseeker -->
+      <form id="job-form" class="card" style="margin-top:16px;">
+        <h2>Kung ikaw ay naghahanap ng mapapasukan, maaari lamang iwan ang mga detalye sa ibaba.</h2>
+
+        <label><strong>Pangalan *</strong></label>
+        <input type="text" name="name" required>
+
+        <label><strong>Number *</strong></label>
+        <input type="tel" name="phone" required inputmode="tel" pattern="^[0-9+()\-\s]{7,}$" placeholder="09xxxxxxxxx / +63 9xx xxx xxxx">
+
+        <label><strong>Email</strong> (optional)</label>
+        <input type="email" name="email" placeholder="you@example.com">
+
+        <label><strong>Iba pang commento</strong></label>
+        <textarea name="comments" rows="4"></textarea>
+
+        <button type="submit" class="button">Submit (Jobseeker)</button>
+      </form>
+
+      <div style="margin-top:16px;">
+        <a class="button" href="welcome.html" id="skip-btn" style="background:#6b7280;">Skip &amp; Go to Home</a>
+      </div>
     </section>
   </main>
 
-  <footer class="container"><small>© NannyProvider.PH</small></footer>
+  <footer class="container"><small class="muted">© NannyProvider.PH</small></footer>
 
-  <script src="script.js"></script>
   <script>
-  document.getElementById('np-form').addEventListener('submit', function(e){
-    var f = e.target;
-    if (!f.checkValidity()){
-      e.preventDefault();
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({event:'custom_form_invalid'});
-      alert('Pakisagutan ang lahat ng required fields.');
-      return false;
+    // Replace with your deployed Apps Script Web App URL
+    const NP_ENDPOINT = 'NP_ENDPOINT_HERE';
+
+    function postToSheet(payload){
+      return fetch(NP_ENDPOINT, {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(payload),
+        mode: 'cors'
+      }).then(r => r.json()).catch(() => ({ ok:false }));
     }
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: 'custom_form_submit',
-      name: f.name.value || '',
-      email: f.email.value || '',
-      phone: f.phone.value || '',
-      intent: (f.intent.value || '')
+
+    function handleSubmit(form, typeLabel){
+      form.addEventListener('submit', async function(e){
+        e.preventDefault();
+        if (!form.checkValidity()){
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({event:'custom_form_invalid', type: typeLabel});
+          alert('Pakisagutan ang lahat ng required fields.');
+          return;
+        }
+        const fd = new FormData(form);
+        const payload = {
+          type: typeLabel,
+          name: (fd.get('name')||'').trim(),
+          email: (fd.get('email')||'').trim(),
+          phone: (fd.get('phone')||'').trim(),
+          comments: (fd.get('comments')||'').trim()
+        };
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({event:'custom_form_submit_attempt', ...payload});
+        const res = await postToSheet(payload);
+        if (res && res.ok){
+          window.dataLayer.push({event:'custom_form_submit_success', ...payload});
+          window.location.href = 'thank-you.html';
+        } else {
+          window.dataLayer.push({event:'custom_form_submit_error', error:'save_failed', ...payload});
+          alert('Sorry, nagka-issue sa pagsave. Pakisubukan ulit.');
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+      var maidForm = document.getElementById('maid-form');
+      var jobForm  = document.getElementById('job-form');
+      if (maidForm) handleSubmit(maidForm, 'Looking for a maid');
+      if (jobForm)  handleSubmit(jobForm,  'Jobseeker');
     });
-  }, {passive:false});
   </script>
 </body>
 </html>

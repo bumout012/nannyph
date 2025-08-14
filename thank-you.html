@@ -1,35 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tl">
 <head>
-<meta charset="UTF-8">
-<title>Thank You</title>
-<style>
-  body {
-    background: url('https://lh3.googleusercontent.com/pw/AP1GczPV1_bqQpY-FDPFQMIGB_Va4IT-r8kPSmc1iVyjrPFrOM4cIv3nLDg1sjbMOpr7nNyv_sZ3fSNIfJ7s0HkVfLKIxMOA8fTCAtrE1r--QEIzHPTUrEDiSxHaCX4jdeGQI9-H2p45gzyJxaB6l-wJuUbQ=w1406-h934-s-no-gm?authuser=1') no-repeat center center fixed;
-    background-size: cover;
-    color: white;
-    text-align: center;
-    padding-top: 20%;
-    font-family: Arial, sans-serif;
-  }
-  .box {
-    background: rgba(0,0,0,0.6);
-    padding: 20px;
-    display: inline-block;
-    border-radius: 10px;
-  }
-</style>
-<script>
-  setTimeout(function(){
-    window.location.href = "index.html"; // redirect to home
-  }, 30000);
-</script>
+  <meta charset="utf-8" />
+  <title>Maraming Salamat! — NannyProvider.PH</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y3XFZ1LN7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2Y3XFZ1LN7');
+  </script>
+  <!-- GTM -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-T3H6DRN4');</script>
+
+  <style>
+    html,body{height:100%;margin:0}
+    .ty-hero {
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: url('https://lh3.googleusercontent.com/pw/AP1GczPV1_bqQpY-FDPFQMIGB_Va4IT-r8kPSmc1iVyjrPFrOM4cIv3nLDg1sjbMOpr7nNyv_sZ3fSNIfJ7s0HkVfLKIxMOA8fTCAtrE1r--QEIzHPTUrEDiSxHaCX4jdeGQI9-H2p45gzyJxaB6l-wJuUbQ=w1406-h934-s-no-gm?authuser=1')
+                  no-repeat center center / cover;
+    }
+    .ty-box {
+      background: rgba(0,0,0,.55);
+      color: #fff;
+      padding: 20px 22px;
+      border-radius: 14px;
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,.25);
+    }
+    .ty-box h1 { margin: 0 0 8px; }
+    .ty-box p  { margin: 6px 0; }
+  </style>
 </head>
 <body>
-  <div class="box">
-    <h1>Maraming salamat po sa pag tugon!</h1>
-    <p>Maaari pong maghintay at isa po sa aming staff ang tatawag sa inyo sa lalong madaling panahon.</p>
-    <p><em>Please wait and someone from our staff will contact you soonest.</em></p>
+  <!-- GTM (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H6DRN4"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <div class="ty-hero">
+    <section class="ty-box">
+      <h1>Maraming salamat po sa pag tugon!</h1>
+      <p>Maaari pong maghintay at isa po sa aming staff ang tatawag sa inyo sa lalong madaling panahon.</p>
+      <p><em>Please wait and someone from our staff will contact you soonest.</em></p>
+      <p class="muted" style="margin-top:10px;">Auto-redirecting to Home in <strong id="count">30</strong> seconds…</p>
+      <p><a class="button" href="welcome.html">Go to Home now</a></p>
+    </section>
   </div>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({event:'custom_form_thankyou_view'});
+
+    var secs = 30, el = document.getElementById('count');
+    var timer = setInterval(function(){
+      secs--; if (el) el.textContent = secs;
+      if (secs <= 0){
+        clearInterval(timer);
+        window.dataLayer.push({event:'thankyou_auto_redirect'});
+        window.location.href = 'welcome.html';
+      }
+    }, 1000);
+  </script>
 </body>
 </html>
