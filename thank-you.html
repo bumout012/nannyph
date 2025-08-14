@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+  <meta charset="utf-8" />
+  <title>Maraming Salamat! — NannyProvider.PH</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y3XFZ1LN7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2Y3XFZ1LN7');
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-T3H6DRN4');</script>
+</head>
+<body>
+  <!-- GTM (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H6DRN4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <header class="site-header container">
+    <div class="brand">
+      <img class="logo" src="logo.png" alt="NannyProvider.PH" onerror="this.style.display='none'">
+      <strong>NannyProvider.PH</strong>
+    </div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰</button>
+    <nav id="site-nav" class="nav">
+      <a href="custom-form.html">Form</a>
+      <a href="welcome.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="mission.html">Mission &amp; Vision</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card" style="text-align:center;">
+      <h1>Maraming salamat po sa pag tugon!</h1>
+      <p>Maaari pong maghintay at isa po sa aming staff ang tatawag sa inyo sa lalong madaling panahon.</p>
+      <h2 class="muted" style="margin-top:20px;">Please wait and someone from our staff will contact you soonest.</h2>
+
+      <img src="https://via.placeholder.com/600x300?text=NannyProvider.PH" alt="NannyProvider Thank You" style="max-width:700px;margin:18px auto;border-radius:12px;">
+
+      <p class="muted" style="margin-top:14px;">Auto-redirecting to Home in
+        <strong id="count">30</strong> seconds…
+      </p>
+      <p><a class="button" href="welcome.html">Go to Home now</a></p>
+    </section>
+  </main>
+
+  <footer class="container"><small>© NannyProvider.PH</small></footer>
+  <script src="script.js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({event:'custom_form_thankyou_view'});
+
+    var secs = 30;
+    var el = document.getElementById('count');
+    var timer = setInterval(function(){
+      secs--; if (el) el.textContent = secs;
+      if (secs <= 0){
+        clearInterval(timer);
+        window.dataLayer.push({event:'thankyou_auto_redirect'});
+        window.location.href = 'welcome.html';
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
