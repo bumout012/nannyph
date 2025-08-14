@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+  <meta charset="utf-8" />
+  <title>NannyProvider.PH — Application Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y3XFZ1LN7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2Y3XFZ1LN7');
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-T3H6DRN4');</script>
+</head>
+<body>
+  <!-- GTM (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H6DRN4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <header class="site-header container">
+    <div class="brand">
+      <img class="logo" src="logo.png" alt="NannyProvider.PH" onerror="this.style.display='none'">
+      <strong>NannyProvider.PH</strong>
+    </div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰</button>
+    <nav id="site-nav" class="nav">
+      <a href="custom-form.html">Form</a>
+      <a href="welcome.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="mission.html">Mission &amp; Vision</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h1>Application Form</h1>
+      <p class="muted">*Lahat ng fields ay required.</p>
+
+      <form id="np-form" action="thank-you.html" method="GET" novalidate>
+        <!-- Name -->
+        <label for="name"><strong>Pangalan / Name *</strong></label>
+        <input id="name" name="name" type="text" required placeholder="Juan Dela Cruz" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px;margin:6px 0 14px;">
+
+        <!-- Email -->
+        <label for="email"><strong>Email *</strong></label>
+        <input id="email" name="email" type="email" required placeholder="you@example.com" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px;margin:6px 0 14px;">
+
+        <!-- Phone -->
+        <label for="phone"><strong>Phone Number *</strong></label>
+        <input id="phone" name="phone" type="tel" required inputmode="tel"
+               pattern="^[0-9+()\-\s]{7,}$"
+               placeholder="09xxxxxxxxx / +63 9xx xxx xxxx"
+               style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px;margin:6px 0 14px;">
+
+        <!-- Intent (radio) -->
+        <fieldset style="border:1px solid #e5e7eb;border-radius:10px;padding:12px;margin:8px 0 16px;">
+          <legend><strong>Layunin *</strong></legend>
+          <label style="display:block;margin:6px 0;">
+            <input type="radio" name="intent" value="nag-hahanap-ng-yaya" required>
+            Ako ay nag hahanap ng yaya.
+          </label>
+          <label style="display:block;margin:6px 0;">
+            <input type="radio" name="intent" value="nag-hahanap-ng-ma-papasukan" required>
+            Ako ay nag hahanap ng ma papasukan.
+          </label>
+        </fieldset>
+
+        <!-- Comments -->
+        <label for="comments"><strong>Iba pang komento / Other comments</strong></label>
+        <textarea id="comments" name="comments" rows="5" placeholder="Ilagay ang karagdagang detalye dito…" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px;margin:6px 0 16px;"></textarea>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <button type="submit" class="button">Submit</button>
+          <a class="button" href="welcome.html" id="skip-btn" style="background:#6b7280;">Skip &amp; Go to Home</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="container"><small>© NannyProvider.PH</small></footer>
+
+  <script src="script.js"></script>
+  <script>
+  document.getElementById('np-form').addEventListener('submit', function(e){
+    var f = e.target;
+    if (!f.checkValidity()){
+      e.preventDefault();
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({event:'custom_form_invalid'});
+      alert('Pakisagutan ang lahat ng required fields.');
+      return false;
+    }
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'custom_form_submit',
+      name: f.name.value || '',
+      email: f.email.value || '',
+      phone: f.phone.value || '',
+      intent: (f.intent.value || '')
+    });
+  }, {passive:false});
+  </script>
+</body>
+</html>
