@@ -119,59 +119,47 @@
   </footer>
 
   <script>
-    const NP_ENDPOINT = "https://script.google.com/macros/s/AKfycbxud-hOtKh1I6eqjTzlvPd4beHKL6rcWHblHBoHM3Y/exec";
-    async function sendFormData(typeLabel, fd) {{
+    const NP_ENDPOINT = "https://script.google.com/macros/s/AKfycbzuwXu-N_HIrjDjblac2E31snJ-z_YhaEvpjSGoBW8-TvzQ9ukTROiCA1yIETrvcEZM/exec";
+    async function sendFormData(typeLabel, fd) {
       fd.append('type', typeLabel);
-      try {{
-        const res = await fetch(NP_ENDPOINT, {{
-          method: 'POST',
-          body: fd,
-          credentials: 'omit'
-        }});
+      try {
+        const res = await fetch(NP_ENDPOINT, { method: 'POST', body: fd, credentials: 'omit' });
         if (res.ok) return true;
-      }} catch(e) {{}}
-      try {{
-        await fetch(NP_ENDPOINT, {{
-          method: 'POST',
-          body: fd,
-          mode: 'no-cors',
-          keepalive: true,
-          credentials: 'omit'
-        }});
+      } catch(e) { /* ignore */ }
+      try {
+        await fetch(NP_ENDPOINT, { method: 'POST', body: fd, mode: 'no-cors', keepalive: true, credentials: 'omit' });
         return true;
-      }} catch(e) {{
-        return false;
-      }}
-    }}
-    function bindForm(formId, typeLabel) {{
+      } catch(e) { return false; }
+    }
+    function bindForm(formId, typeLabel) {
       const form = document.getElementById(formId);
       if (!form) return;
-      form.addEventListener('submit', async function(e) {{
+      form.addEventListener('submit', async function(e) {
         e.preventDefault();
-        if (!form.checkValidity()) {{
+        if (!form.checkValidity()) {
           window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({{event:'custom_form_invalid', type: typeLabel}});
+          window.dataLayer.push({event:'custom_form_invalid', type: typeLabel});
           alert('Pakisagutan ang lahat ng required fields.');
           return;
-        }}
+        }
         const fd = new FormData(form);
-        const payloadPreview = {{ type: typeLabel, name: fd.get('name'), email: fd.get('email'), phone: fd.get('phone') }};
+        const preview = { type: typeLabel, name: fd.get('name'), email: fd.get('email'), phone: fd.get('phone') };
         window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({{event:'custom_form_submit_attempt', ...payloadPreview}});
+        window.dataLayer.push({event:'custom_form_submit_attempt', ...preview});
         const ok = await sendFormData(typeLabel, fd);
-        if (ok) {{
-          window.dataLayer.push({{event:'custom_form_submit_success', ...payloadPreview}});
+        if (ok) {
+          window.dataLayer.push({event:'custom_form_submit_success', ...preview});
           window.location.href = 'thank-you.html';
-        }} else {{
-          window.dataLayer.push({{event:'custom_form_submit_error', ...payloadPreview}});
+        } else {
+          window.dataLayer.push({event:'custom_form_submit_error', ...preview});
           alert('Sorry, nagka-issue sa pagsave. Pakisubukan ulit.');
-        }}
-      }});
-    }}
-    document.addEventListener('DOMContentLoaded', function() {{
+        }
+      });
+    }
+    document.addEventListener('DOMContentLoaded', function() {
       bindForm('maid-form','Looking for a maid');
       bindForm('job-form','Jobseeker');
-    }});
+    });
   </script>
 </body>
 </html>
