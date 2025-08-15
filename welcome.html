@@ -36,10 +36,8 @@
     .card{background:var(--card);border:1px solid #e5e7eb;border-radius:14px;padding:18px}
     .btn{display:inline-block;background:var(--brand);color:#fff;padding:12px 16px;border-radius:12px;font-weight:600}
     .btn.secondary{background:#111;color:#fff}
-    @media (max-width: 720px){
-      .header-row{flex-wrap:wrap;gap:10px}
-      nav.nav{width:100%;justify-content:flex-start}
-    }
+    .hero{display:grid;grid-template-columns:1.15fr 0.85fr;gap:24px;align-items:center;margin:18px 0}
+    @media (max-width: 900px){ .hero{grid-template-columns:1fr} }
   </style>
 </head>
 <body>
@@ -52,7 +50,7 @@
         <span class="title">Nanny Provider PH</span>
       </a>
       <nav class="nav">
-        <a href="index.html" >Form</a>
+        <a href="index.html">Form</a>
         <a href="welcome.html" aria-current="page">Home</a>
         <a href="about.html">About</a>
         <a href="mission.html">Mission &amp; Vision</a>
@@ -60,40 +58,29 @@
       </nav>
     </div>
   </header>
-
   <main class="wrap">
-    <section class="card" style="margin:18px 0">
-      <div style="display:grid;grid-template-columns:1.15fr 0.85fr;gap:24px;align-items:center">
-        <div>
-          <div style="color:var(--brand);font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.9rem">
-            DOLE PEA LICENSE NO. M-23-00-016
-          </div>
-          <h1 style="margin:.2em 0 .3em;font-size:clamp(28px,4vw,44px);line-height:1.15">
-            Welcome to NannyProvider.PH
-          </h1>
-          <p style="color:var(--muted);margin:0 0 18px">
-            Hello everyone! We would like to invite you to our agency located at Unit 201 Casa Susana Building,
-            1121 Pedro Gil St., Paco Manila.
-          </p>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin:10px 0 6px">
-            <a class="btn" href="index.html">Get Started — Fill the Form</a>
-            <a class="btn secondary" href="contact.html">Call / Directions</a>
-          </div>
+    <section class="card hero">
+      <div>
+        <div style="color:var(--brand);font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.9rem">DOLE PEA LICENSE NO. M-23-00-016</div>
+        <h1 style="margin:.2em 0 .3em;font-size:clamp(28px,4vw,44px);line-height:1.15">Welcome to NannyProvider.PH</h1>
+        <p style="color:var(--muted)">Hello everyone! We would like to invite you to our agency located at Unit 201 Casa Susana Building, 1121 Pedro Gil St., Paco Manila.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+          <a class="btn" href="index.html">Get Started — Fill the Form</a>
+          <a class="btn secondary" href="contact.html">Call / Directions</a>
         </div>
-        <div>
-          <div style="background:#e5eef9;border:1px solid #dbeafe;border-radius:16px;padding:8px;display:grid;place-items:center;aspect-ratio:4/3">
-            <img src="https://static.wixstatic.com/media/d3b624_842194dcc14e455e828e2433bed94936~mv2.jpg/v1/fill/w_800,h_600,q_90,enc_avif,quality_auto/d3b624_842194dcc14e455e828e2433bed94936~mv2.jpg" alt="" style="max-width:100%;height:auto;border-radius:12px" onerror="this.style.display='none'">
-          </div>
+      </div>
+      <div>
+        <div style="background:#e5eef9;border:1px solid #dbeafe;border-radius:16px;padding:8px;display:grid;place-items:center;aspect-ratio:4/3">
+          <img src="https://static.wixstatic.com/media/d3b624_842194dcc14e455e828e2433bed94936~mv2.jpg/v1/fill/w_800,h_600,q_90,enc_avif,quality_auto/d3b624_842194dcc14e455e828e2433bed94936~mv2.jpg" alt="" style="max-width:100%;height:auto;border-radius:12px" onerror="this.style.display='none'">
         </div>
       </div>
     </section>
   </main>
-  <footer class="wrap" style="padding:24px 0;color:var(--muted)">
+  <footer class="wrap" style="padding:24px 0;color:#6b7280">
     <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between">
       <small>© NannyProvider.PH — DOLE PEA LICENSE NO. M-23-00-016</small>
       <small>206 Casa Susana Bldg. 1121 Pedro Gil St., Brgy. 675, Paco Manila • Daily 9:00 AM — 6:00 PM</small>
     </div>
   </footer>
-
 </body>
 </html>

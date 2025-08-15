@@ -33,16 +33,14 @@
     nav.nav{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
     nav.nav a{padding:8px 10px;border-radius:8px}
     nav.nav a[aria-current="page"]{background:var(--ring)}
+    .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
     .card{background:var(--card);border:1px solid #e5e7eb;border-radius:14px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
     label{display:block;margin:8px 0 4px}
     input,textarea{width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px}
-    .actions{text-align:center;margin-top:12px}
-    .btn{display:inline-block;background:var(--brand);color:#fff;padding:12px 16px;border-radius:12px;font-weight:600;border:0;cursor:pointer;text-decoration:none}
-    .btn.secondary{background:#111;color:#fff}
-    @media (max-width: 720px){
-      .header-row{flex-wrap:wrap;gap:10px}
-      nav.nav{width:100%;justify-content:flex-start}
-    }
+    .actions{display:flex;justify-content:center;margin-top:14px}
+    .btn{display:inline-block;background:var(--brand);color:#fff;padding:12px 22px;border-radius:12px;font-weight:600;border:0;cursor:pointer;text-decoration:none;min-width:220px}
+    .btn.secondary{background:#111;color:#fff;min-width:auto}
+    @media (max-width: 900px){ .cards{grid-template-columns:1fr} }
   </style>
 </head>
 <body>
@@ -69,9 +67,8 @@
     <h1 style="margin:18px 0 6px">Application Form</h1>
     <p style="color:var(--muted);margin:0 0 18px">*Lahat ng required ay may “*”.</p>
 
-    <div style="display:flex;gap:24px;flex-wrap:wrap">
-      <!-- Maid Form -->
-      <section class="card" style="flex:1 1 480px">
+    <div class="cards">
+      <section class="card">
         <h2>If you are looking for a maid, please fill up the details below.</h2>
         <form id="maid-form" autocomplete="on" novalidate>
           <label><strong>Name *</strong></label>
@@ -88,8 +85,7 @@
         </form>
       </section>
 
-      <!-- Jobseeker Form -->
-      <section class="card" style="flex:1 1 480px">
+      <section class="card">
         <h2>Kung ikaw ay naghahanap ng mapapasukan, maaari lamang iwan ang mga detalye sa ibaba.</h2>
         <form id="job-form" autocomplete="on" novalidate>
           <label><strong>Pangalan *</strong></label>
@@ -122,14 +118,12 @@
     const NP_ENDPOINT = "https://script.google.com/macros/s/AKfycbzuwXu-N_HIrjDjblac2E31snJ-z_YhaEvpjSGoBW8-TvzQ9ukTROiCA1yIETrvcEZM/exec";
     async function sendFormData(typeLabel, fd) {
       fd.append('type', typeLabel);
-      try {
-        const res = await fetch(NP_ENDPOINT, { method: 'POST', body: fd, credentials: 'omit' });
-        if (res.ok) return true;
-      } catch(e) { /* ignore */ }
-      try {
-        await fetch(NP_ENDPOINT, { method: 'POST', body: fd, mode: 'no-cors', keepalive: true, credentials: 'omit' });
-        return true;
-      } catch(e) { return false; }
+      let ok = false;
+      try { const res = await fetch(NP_ENDPOINT, { method: 'POST', body: fd, credentials: 'omit' }); ok = res.ok; } catch(e) {}
+      if (!ok) {
+        try { await fetch(NP_ENDPOINT, { method: 'POST', body: fd, mode: 'no-cors', keepalive: true, credentials: 'omit' }); ok = true; } catch(e) { ok = false; }
+      }
+      return ok;
     }
     function bindForm(formId, typeLabel) {
       const form = document.getElementById(formId);
@@ -149,10 +143,11 @@
         const ok = await sendFormData(typeLabel, fd);
         if (ok) {
           window.dataLayer.push({event:'custom_form_submit_success', ...preview});
-          window.location.href = 'thank-you.html';
+          window.location.href = 'thank-you.html?status=ok&type=' + encodeURIComponent(typeLabel);
         } else {
           window.dataLayer.push({event:'custom_form_submit_error', ...preview});
-          alert('Sorry, nagka-issue sa pagsave. Pakisubukan ulit.');
+          // Still redirect to thank-you so users see confirmation; include status=maybe
+          window.location.href = 'thank-you.html?status=maybe&type=' + encodeURIComponent(typeLabel);
         }
       });
     }
