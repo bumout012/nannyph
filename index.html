@@ -1,118 +1,164 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Form - Nanny Provider PH</title>
+  <meta charset="utf-8" />
+  <title>NannyProvider.PH — Application Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
 
-<!-- Google Tag Manager -->
-<script>
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
-j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-T3H6DRN4');
-</script>
-<!-- End Google Tag Manager -->
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y3XFZ1LN7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2Y3XFZ1LN7');
+  </script>
 
-<!-- Google Analytics (GA4) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y3XFZ1LN7"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-2Y3XFZ1LN7');
-</script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-T3H6DRN4');</script>
 
-<link rel="stylesheet" href="styles.css">
-<style>
-header.site-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background: #fff;
-    border-bottom: 1px solid #ddd;
-}
-header.site-header h1 {
-    margin: 0;
-    font-size: 1.5em;
-}
-header.site-header h1 a {
-    color: #000;
-    text-decoration: none;
-}
-header.site-header img {
-    height: 50px;
-}
-main.wrap {
-    padding: 20px;
-}
-</style>
-<script defer src="script.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
- if (localStorage.getItem('nanny_skip_form') === 'true') {
-     window.location.href = 'welcome.html';
- }
-});
-</script>
+  <style>
+    body{font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;margin:0;background:#f8f8f6;color:#1f2937}
+    .container{max-width:1000px;margin:0 auto;padding:20px}
+    .site-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid #e5e7eb;background:#fff;position:sticky;top:0;z-index:10}
+    .brand a{font-weight:700;color:#111;text-decoration:none}
+    .logo{height:44px;width:auto;border-radius:6px}
+    .card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+    label{display:block;margin:8px 0 4px}
+    input,textarea{width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px}
+    button,.button{background:#0a66c2;color:#fff;border:0;border-radius:10px;padding:12px 16px;cursor:pointer;text-decoration:none;display:inline-block}
+    .muted{color:#6b7280}
+    .forms-wrap{display:flex;gap:24px;flex-wrap:wrap}
+    .form-card{flex:1 1 480px}
+  </style>
 </head>
 <body>
+  <!-- GTM (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H6DRN4"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H6DRN4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
-<header class="site-header">
-    <h1><a href="welcome.html">Nanny Provider PH</a></h1>
-    <a href="welcome.html">
-        <img src="https://static.wixstatic.com/media/d3b624_54ab1e86dc4e4c4db1890ecba2241006~mv2.png/v1/crop/x_147%2Cy_147%2Cw_786%2Ch_786/fill/w_94%2Ch_94%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/d3b624_54ab1e86dc4e4c4db1890ecba2241006~mv2.png" alt="Nanny Provider PH Logo">
+  <header class="site-header">
+    <div class="brand">
+      <a href="welcome.html">Nanny Provider PH</a>
+    </div>
+    <a href="welcome.html" aria-label="Go to Home">
+      <img class="logo" src="https://static.wixstatic.com/media/d3b624_54ab1e86dc4e4c4db1890ecba2241006~mv2.png/v1/crop/x_147%2Cy_147%2Cw_786%2Ch_786/fill/w_94%2Ch_94%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/d3b624_54ab1e86dc4e4c4db1890ecba2241006~mv2.png" alt="NannyProvider.PH logo">
     </a>
-</header>
+  </header>
 
-<main class="wrap">
-<section class="card">
-<h2>Registration / Application Form</h2>
-<form id="nannyForm">
-    <fieldset>
-        <legend>1. If you are looking for a maid, please fill up the details below.</legend>
-        <label>Name: <input type="text" name="maid_name" required></label><br>
-        <label>Phone Number: <input type="text" name="maid_phone" required></label><br>
-        <label>Email: <input type="email" name="maid_email" required></label><br>
-        <label>Other Comments:<br><textarea name="maid_comments"></textarea></label>
-    </fieldset>
-    <fieldset>
-        <legend>2. Kung ikaw ay naghahanap ng mapapasukan, maaari lamang iwan ang mga detalye sa ibaba.</legend>
-        <label>Pangalan: <input type="text" name="worker_name" required></label><br>
-        <label>Numero: <input type="text" name="worker_phone" required></label><br>
-        <label>Iba pang Komento:<br><textarea name="worker_comments"></textarea></label>
-    </fieldset>
-    <button type="submit">Submit</button>
-</form>
-</section>
-</main>
+  <main class="container">
+    <h1>Application Form</h1>
+    <p class="muted">*Lahat ng required ay may “*”.</p>
 
-<footer class="site-footer">
- <div class="wrap">
- <p>&copy; 2025 Nanny Provider PH. All rights reserved.</p>
- </div>
-</footer>
+    <div class="forms-wrap">
 
-<script>
-document.getElementById('nannyForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    fetch('https://script.google.com/macros/s/AKfycbxud-hOtKh1I6eqjTzlvPd4beHKL6rcWHblHBoHM3Y/exec', {
+      <!-- Maid Form (independent form with its own submit) -->
+      <section class="card form-card">
+        <h2>If you are looking for a maid, please fill up the details below.</h2>
+        <form id="maid-form">
+          <label><strong>Name *</strong></label>
+          <input type="text" name="name" required>
+
+          <label><strong>Phone *</strong></label>
+          <input type="tel" name="phone" required inputmode="tel"
+                pattern="^[0-9+()\-\s]{7,}$" placeholder="09xxxxxxxxx / +63 9xx xxx xxxx">
+
+          <label><strong>Email *</strong></label>
+          <input type="email" name="email" required placeholder="you@example.com">
+
+          <label><strong>Other comments</strong></label>
+          <textarea name="comments" rows="4"></textarea>
+
+          <button type="submit" class="button">Submit (Looking for a maid)</button>
+        </form>
+      </section>
+
+      <!-- Jobseeker Form (independent form with its own submit) -->
+      <section class="card form-card">
+        <h2>Kung ikaw ay naghahanap ng mapapasukan, maaari lamang iwan ang mga detalye sa ibaba.</h2>
+        <form id="job-form">
+          <label><strong>Pangalan *</strong></label>
+          <input type="text" name="name" required>
+
+          <label><strong>Number *</strong></label>
+          <input type="tel" name="phone" required inputmode="tel"
+                pattern="^[0-9+()\-\s]{7,}$" placeholder="09xxxxxxxxx / +63 9xx xxx xxxx">
+
+          <label><strong>Email</strong> (optional)</label>
+          <input type="email" name="email" placeholder="you@example.com">
+
+          <label><strong>Iba pang commento</strong></label>
+          <textarea name="comments" rows="4"></textarea>
+
+          <button type="submit" class="button">Submit (Jobseeker)</button>
+        </form>
+      </section>
+
+    </div>
+
+    <!-- Skip Button -->
+    <div style="text-align:center; margin:24px 0 40px;">
+      <a class="button" href="welcome.html" id="skip-btn" style="background:#6b7280;">Skip &amp; Go to Home</a>
+    </div>
+  </main>
+
+  <footer class="container"><small class="muted">© NannyProvider.PH</small></footer>
+
+  <script>
+    // Post to your Apps Script Web App
+    const NP_ENDPOINT = "https://script.google.com/macros/s/AKfycbxud-hOtKh1I6eqjTzlvPd4beHKL6rcWHblHBoHM3Y/exec";
+
+    function postToSheet(payload){
+      return fetch(NP_ENDPOINT, {
         method: 'POST',
-        body: new FormData(this)
-    }).then(response => {
-        window.location.href = 'thankyou.html';
-    }).catch(error => {
-        alert('There was an error submitting the form.');
-        console.error(error);
-    });
-});
-</script>
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(payload),
+        mode: 'cors'
+      }).then(r => r.json()).catch(() => ({ ok:false }));
+    }
 
+    function bindForm(formId, typeLabel){
+      const form = document.getElementById(formId);
+      if (!form) return;
+      form.addEventListener('submit', async function(e){
+        e.preventDefault();
+        if (!form.checkValidity()){
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({event:'custom_form_invalid', type: typeLabel});
+          alert('Pakisagutan ang lahat ng required fields.');
+          return;
+        }
+        const fd = new FormData(form);
+        const payload = {
+          type: typeLabel,
+          name: (fd.get('name')||'').trim(),
+          email: (fd.get('email')||'').trim(),
+          phone: (fd.get('phone')||'').trim(),
+          comments: (fd.get('comments')||'').trim()
+        };
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({event:'custom_form_submit_attempt', ...payload});
+        const res = await postToSheet(payload);
+        if (res && res.ok){
+          window.dataLayer.push({event:'custom_form_submit_success', ...payload});
+          window.location.href = 'thank-you.html';
+        } else {
+          window.dataLayer.push({event:'custom_form_submit_error', error:'save_failed', ...payload});
+          alert('Sorry, nagka-issue sa pagsave. Pakisubukan ulit.');
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+      // Each form is independent; submitting one does not validate the other
+      bindForm('maid-form', 'Looking for a maid');
+      bindForm('job-form',  'Jobseeker');
+    });
+  </script>
 </body>
 </html>
