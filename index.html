@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="tl">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>NannyProvider.PH — Application Form</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="styles.css?v=6">
   <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y3XFZ1LN7"></script>
   <script>
@@ -19,53 +20,29 @@
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-T3H6DRN4');</script>
-  <style>
-    :root{ --bg:#f8f8f6; --card:#fff; --ink:#1f2937; --muted:#6b7280; --brand:#0a66c2; --ring:#dbeafe; }
-    *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
-    a{color:var(--brand);text-decoration:none}
-    .wrap{max-width:1140px;margin:0 auto;padding:0 20px}
-    header.site-header{position:sticky;top:0;z-index:30;background:var(--card);border-bottom:1px solid #e5e7eb}
-    .header-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-    .brand{display:flex;align-items:center;gap:10px;min-width:0}
-    .brand img{height:36px;width:auto;border-radius:6px;flex:0 0 auto}
-    .brand .title{font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    nav.nav{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
-    nav.nav a{padding:8px 10px;border-radius:8px}
-    nav.nav a[aria-current="page"]{background:var(--ring)}
-    .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-    .card{background:var(--card);border:1px solid #e5e7eb;border-radius:14px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
-    label{display:block;margin:8px 0 4px}
-    input,textarea{width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px}
-    .actions{display:flex;justify-content:center;margin-top:14px}
-    .btn{display:inline-block;background:var(--brand);color:#fff;padding:12px 22px;border-radius:12px;font-weight:600;border:0;cursor:pointer;text-decoration:none;min-width:220px}
-    .btn.secondary{background:#111;color:#fff;min-width:auto}
-    @media (max-width: 900px){ .cards{grid-template-columns:1fr} }
-  </style>
 </head>
 <body>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H6DRN4"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
   <header class="site-header">
     <div class="wrap header-row">
       <a class="brand" href="welcome.html" aria-label="Home">
-        <img src="https://static.wixstatic.com/media/d3b624_54ab1e86dc4e4c4db1890ecba2241006~mv2.png/v1/crop/x_147%2Cy_147%2Cw_786%2Ch_786/fill/w_94%2Ch_94%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/d3b624_54ab1e86dc4e4c4db1890ecba2241006~mv2.png" alt="NannyProvider.PH logo" />
+        <img class="logo-img" src="https://static.wixstatic.com/media/d3b624_54ab1e86dc4e4c4db1890ecba2241006~mv2.png/v1/crop/x_147%2Cy_147%2Cw_786%2Ch_786/fill/w_94%2Ch_94%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/d3b624_54ab1e86dc4e4c4db1890ecba2241006~mv2.png" alt="NannyProvider.PH logo">
         <span class="title">Nanny Provider PH</span>
       </a>
       <nav class="nav">
         <a href="index.html" aria-current="page">Form</a>
         <a href="welcome.html">Home</a>
         <a href="about.html">About</a>
-        <a href="mission.html">Mission &amp; Vision</a>
+        <a href="mission.html">Mission & Vision</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
-
   <main class="wrap">
+
     <h1 style="margin:18px 0 6px">Application Form</h1>
-    <p style="color:var(--muted);margin:0 0 18px">*Lahat ng required ay may “*”.</p>
+    <p style="color:var(--muted);margin:0 0 18px">* All fields with * are required.</p>
 
     <div class="cards">
       <section class="card">
@@ -106,76 +83,78 @@
     <div style="text-align:center; margin:24px 0 40px;">
       <a class="btn secondary" href="welcome.html" id="skip-btn">Skip &amp; Go to Home</a>
     </div>
-  </main>
 
-  <footer class="wrap" style="padding:24px 0;color:var(--muted)">
-    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between">
-      <small>© NannyProvider.PH</small>
-    </div>
-  </footer>
-
-  <script>
-    const NP_ENDPOINT = "https://script.google.com/macros/s/AKfycbwXbPKhXxRa5K2MwlHw-3qnklwTIzTT82_S973h3cm3CveG5hYKBY1J498_Uq2j90SX/exec";
-    async function postURLEncoded(payload) {
-      try {
-        const res = await fetch(NP_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-          body: new URLSearchParams(payload).toString(),
-          credentials: 'omit'
-        });
-        return res.ok;
-      } catch(e) {
+    <script>
+      const NP_ENDPOINT = "https://script.google.com/macros/s/AKfycbwXbPKhXxRa5K2MwlHw-3qnklwTIzTT82_S973h3cm3CveG5hYKBY1J498_Uq2j90SX/exec";
+      async function postURLEncoded(payload) {
         try {
-          await fetch(NP_ENDPOINT, {
+          const res = await fetch(NP_ENDPOINT, {
             method: 'POST',
-            mode: 'no-cors',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
             body: new URLSearchParams(payload).toString(),
-            credentials: 'omit',
-            keepalive: true
+            credentials: 'omit'
           });
-          return true;
-        } catch(e2) {
-          return false;
+          return res.ok;
+        } catch(e) {
+          try {
+            await fetch(NP_ENDPOINT, {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+              body: new URLSearchParams(payload).toString(),
+              credentials: 'omit',
+              keepalive: true
+            });
+            return true;
+          } catch(e2) {
+            return false;
+          }
         }
       }
-    }
-    function bindForm(formId, typeLabel) {
-      const form = document.getElementById(formId);
-      if (!form) return;
-      form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        if (!form.checkValidity()) {
+      function bindForm(formId, typeLabel) {
+        const form = document.getElementById(formId);
+        if (!form) return;
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          if (!form.checkValidity()) {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({event:'custom_form_invalid', type: typeLabel});
+            alert('Please complete the required fields.');
+            return;
+          }
+          const fd = new FormData(form);
+          const payload = {
+            type: typeLabel,
+            name: fd.get('name') || '',
+            phone: fd.get('phone') || '',
+            email: fd.get('email') || '',
+            comments: fd.get('comments') || ''
+          };
           window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({event:'custom_form_invalid', type: typeLabel});
-          alert('Pakisagutan ang lahat ng required fields.');
-          return;
-        }
-        const fd = new FormData(form);
-        const payload = {
-          type: typeLabel,
-          name: fd.get('name') || '',
-          phone: fd.get('phone') || '',
-          email: fd.get('email') || '',
-          comments: fd.get('comments') || ''
-        };
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({event:'custom_form_submit_attempt', ...payload});
-        const ok = await postURLEncoded(payload);
-        if (ok) {
-          window.dataLayer.push({event:'custom_form_submit_success', ...payload});
-          window.location.href = 'thank-you.html?status=ok&type=' + encodeURIComponent(typeLabel);
-        } else {
-          window.dataLayer.push({event:'custom_form_submit_error', ...payload});
-          window.location.href = 'thank-you.html?status=maybe&type=' + encodeURIComponent(typeLabel);
-        }
+          window.dataLayer.push({event:'custom_form_submit_attempt', ...payload});
+          const ok = await postURLEncoded(payload);
+          if (ok) {
+            window.dataLayer.push({event:'custom_form_submit_success', ...payload});
+            window.location.href = 'thank-you.html?status=ok&type=' + encodeURIComponent(typeLabel);
+          } else {
+            window.dataLayer.push({event:'custom_form_submit_error', ...payload});
+            window.location.href = 'thank-you.html?status=maybe&type=' + encodeURIComponent(typeLabel);
+          }
+        });
+      }
+      document.addEventListener('DOMContentLoaded', function() {
+        bindForm('maid-form','Looking for a maid');
+        bindForm('job-form','Jobseeker');
       });
-    }
-    document.addEventListener('DOMContentLoaded', function() {
-      bindForm('maid-form','Looking for a maid');
-      bindForm('job-form','Jobseeker');
-    });
-  </script>
+    </script>
+
+  </main>
+  <footer class="wrap" style="padding:24px 0;color:var(--muted)">
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between">
+      <small>© NannyProvider.PH — DOLE PEA LICENSE NO. M-23-00-016</small>
+      <small>206 Casa Susana Bldg. 1121 Pedro Gil St., Brgy. 675, Paco Manila • Daily 9:00 AM — 6:00 PM</small>
+    </div>
+  </footer>
+  <script defer src="script.js?v=6"></script>
 </body>
 </html>
