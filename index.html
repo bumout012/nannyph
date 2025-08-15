@@ -2,11 +2,10 @@
 <html lang="tl">
 <head>
   <meta charset="utf-8" />
-  <title>NannyProvider.PH — Application Form</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NannyProvider.PH — Application Form</title>
   <link rel="stylesheet" href="styles.css" />
-
-  <!-- Google Analytics (GA4) -->
+  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y3XFZ1LN7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -14,151 +13,165 @@
     gtag('js', new Date());
     gtag('config', 'G-2Y3XFZ1LN7');
   </script>
-
-  <!-- Google Tag Manager -->
+  <!-- GTM -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-T3H6DRN4');</script>
-
   <style>
-    body{font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;margin:0;background:#f8f8f6;color:#1f2937}
-    .container{max-width:1000px;margin:0 auto;padding:20px}
-    .site-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid #e5e7eb;background:#fff;position:sticky;top:0;z-index:10}
-    .brand a{font-weight:700;color:#111;text-decoration:none}
-    .logo{height:44px;width:auto;border-radius:6px}
-    .card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+    :root{ --bg:#f8f8f6; --card:#fff; --ink:#1f2937; --muted:#6b7280; --brand:#0a66c2; --ring:#dbeafe; }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    a{color:var(--brand);text-decoration:none}
+    .wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+    header.site-header{position:sticky;top:0;z-index:30;background:var(--card);border-bottom:1px solid #e5e7eb}
+    .header-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:10px;min-width:0}
+    .brand img{height:36px;width:auto;border-radius:6px;flex:0 0 auto}
+    .brand .title{font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    nav.nav{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+    nav.nav a{padding:8px 10px;border-radius:8px}
+    nav.nav a[aria-current="page"]{background:var(--ring)}
+    .card{background:var(--card);border:1px solid #e5e7eb;border-radius:14px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
     label{display:block;margin:8px 0 4px}
     input,textarea{width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px}
-    button,.button{background:#0a66c2;color:#fff;border:0;border-radius:10px;padding:12px 16px;cursor:pointer;text-decoration:none;display:inline-block}
-    .muted{color:#6b7280}
-    .forms-wrap{display:flex;gap:24px;flex-wrap:wrap}
-    .form-card{flex:1 1 480px}
+    .actions{text-align:center;margin-top:12px}
+    .btn{display:inline-block;background:var(--brand);color:#fff;padding:12px 16px;border-radius:12px;font-weight:600;border:0;cursor:pointer;text-decoration:none}
+    .btn.secondary{background:#111;color:#fff}
+    @media (max-width: 720px){
+      .header-row{flex-wrap:wrap;gap:10px}
+      nav.nav{width:100%;justify-content:flex-start}
+    }
   </style>
 </head>
 <body>
-  <!-- GTM (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H6DRN4"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <header class="site-header">
-    <div class="brand">
-      <a href="welcome.html">Nanny Provider PH</a>
+    <div class="wrap header-row">
+      <a class="brand" href="welcome.html" aria-label="Home">
+        <img src="https://static.wixstatic.com/media/d3b624_54ab1e86dc4e4c4db1890ecba2241006~mv2.png/v1/crop/x_147%2Cy_147%2Cw_786%2Ch_786/fill/w_94%2Ch_94%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/d3b624_54ab1e86dc4e4c4db1890ecba2241006~mv2.png" alt="NannyProvider.PH logo" />
+        <span class="title">Nanny Provider PH</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html" aria-current="page">Form</a>
+        <a href="welcome.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="mission.html">Mission &amp; Vision</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
-    <a href="welcome.html" aria-label="Go to Home">
-      <img class="logo" src="https://static.wixstatic.com/media/d3b624_54ab1e86dc4e4c4db1890ecba2241006~mv2.png/v1/crop/x_147%2Cy_147%2Cw_786%2Ch_786/fill/w_94%2Ch_94%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/d3b624_54ab1e86dc4e4c4db1890ecba2241006~mv2.png" alt="NannyProvider.PH logo">
-    </a>
   </header>
 
-  <main class="container">
-    <h1>Application Form</h1>
-    <p class="muted">*Lahat ng required ay may “*”.</p>
+  <main class="wrap">
+    <h1 style="margin:18px 0 6px">Application Form</h1>
+    <p style="color:var(--muted);margin:0 0 18px">*Lahat ng required ay may “*”.</p>
 
-    <div class="forms-wrap">
-
-      <!-- Maid Form (independent form with its own submit) -->
-      <section class="card form-card">
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <!-- Maid Form -->
+      <section class="card" style="flex:1 1 480px">
         <h2>If you are looking for a maid, please fill up the details below.</h2>
-        <form id="maid-form">
+        <form id="maid-form" autocomplete="on" novalidate>
           <label><strong>Name *</strong></label>
           <input type="text" name="name" required>
-
           <label><strong>Phone *</strong></label>
-          <input type="tel" name="phone" required inputmode="tel"
-                pattern="^[0-9+()\-\s]{7,}$" placeholder="09xxxxxxxxx / +63 9xx xxx xxxx">
-
+          <input type="tel" name="phone" required inputmode="tel" pattern="^[0-9+()\-\s]{7,}$" placeholder="09xxxxxxxxx / +63 9xx xxx xxxx">
           <label><strong>Email *</strong></label>
           <input type="email" name="email" required placeholder="you@example.com">
-
           <label><strong>Other comments</strong></label>
           <textarea name="comments" rows="4"></textarea>
-
-          <button type="submit" class="button">Submit (Looking for a maid)</button>
+          <div class="actions">
+            <button type="submit" class="btn">Submit (Looking for a maid)</button>
+          </div>
         </form>
       </section>
 
-      <!-- Jobseeker Form (independent form with its own submit) -->
-      <section class="card form-card">
+      <!-- Jobseeker Form -->
+      <section class="card" style="flex:1 1 480px">
         <h2>Kung ikaw ay naghahanap ng mapapasukan, maaari lamang iwan ang mga detalye sa ibaba.</h2>
-        <form id="job-form">
+        <form id="job-form" autocomplete="on" novalidate>
           <label><strong>Pangalan *</strong></label>
           <input type="text" name="name" required>
-
           <label><strong>Number *</strong></label>
-          <input type="tel" name="phone" required inputmode="tel"
-                pattern="^[0-9+()\-\s]{7,}$" placeholder="09xxxxxxxxx / +63 9xx xxx xxxx">
-
+          <input type="tel" name="phone" required inputmode="tel" pattern="^[0-9+()\-\s]{7,}$" placeholder="09xxxxxxxxx / +63 9xx xxx xxxx">
           <label><strong>Email</strong> (optional)</label>
           <input type="email" name="email" placeholder="you@example.com">
-
           <label><strong>Iba pang commento</strong></label>
           <textarea name="comments" rows="4"></textarea>
-
-          <button type="submit" class="button">Submit (Jobseeker)</button>
+          <div class="actions">
+            <button type="submit" class="btn">Submit (Jobseeker)</button>
+          </div>
         </form>
       </section>
-
     </div>
 
-    <!-- Skip Button -->
     <div style="text-align:center; margin:24px 0 40px;">
-      <a class="button" href="welcome.html" id="skip-btn" style="background:#6b7280;">Skip &amp; Go to Home</a>
+      <a class="btn secondary" href="welcome.html" id="skip-btn">Skip &amp; Go to Home</a>
     </div>
   </main>
 
-  <footer class="container"><small class="muted">© NannyProvider.PH</small></footer>
+  <footer class="wrap" style="padding:24px 0;color:var(--muted)">
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between">
+      <small>© NannyProvider.PH</small>
+    </div>
+  </footer>
 
   <script>
-    // Post to your Apps Script Web App
     const NP_ENDPOINT = "https://script.google.com/macros/s/AKfycbxud-hOtKh1I6eqjTzlvPd4beHKL6rcWHblHBoHM3Y/exec";
-
-    function postToSheet(payload){
-      return fetch(NP_ENDPOINT, {
-        method: 'POST',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify(payload),
-        mode: 'cors'
-      }).then(r => r.json()).catch(() => ({ ok:false }));
-    }
-
-    function bindForm(formId, typeLabel){
+    async function sendFormData(typeLabel, fd) {{
+      fd.append('type', typeLabel);
+      try {{
+        const res = await fetch(NP_ENDPOINT, {{
+          method: 'POST',
+          body: fd,
+          credentials: 'omit'
+        }});
+        if (res.ok) return true;
+      }} catch(e) {{}}
+      try {{
+        await fetch(NP_ENDPOINT, {{
+          method: 'POST',
+          body: fd,
+          mode: 'no-cors',
+          keepalive: true,
+          credentials: 'omit'
+        }});
+        return true;
+      }} catch(e) {{
+        return false;
+      }}
+    }}
+    function bindForm(formId, typeLabel) {{
       const form = document.getElementById(formId);
       if (!form) return;
-      form.addEventListener('submit', async function(e){
+      form.addEventListener('submit', async function(e) {{
         e.preventDefault();
-        if (!form.checkValidity()){
+        if (!form.checkValidity()) {{
           window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({event:'custom_form_invalid', type: typeLabel});
+          window.dataLayer.push({{event:'custom_form_invalid', type: typeLabel}});
           alert('Pakisagutan ang lahat ng required fields.');
           return;
-        }
+        }}
         const fd = new FormData(form);
-        const payload = {
-          type: typeLabel,
-          name: (fd.get('name')||'').trim(),
-          email: (fd.get('email')||'').trim(),
-          phone: (fd.get('phone')||'').trim(),
-          comments: (fd.get('comments')||'').trim()
-        };
+        const payloadPreview = {{ type: typeLabel, name: fd.get('name'), email: fd.get('email'), phone: fd.get('phone') }};
         window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({event:'custom_form_submit_attempt', ...payload});
-        const res = await postToSheet(payload);
-        if (res && res.ok){
-          window.dataLayer.push({event:'custom_form_submit_success', ...payload});
+        window.dataLayer.push({{event:'custom_form_submit_attempt', ...payloadPreview}});
+        const ok = await sendFormData(typeLabel, fd);
+        if (ok) {{
+          window.dataLayer.push({{event:'custom_form_submit_success', ...payloadPreview}});
           window.location.href = 'thank-you.html';
-        } else {
-          window.dataLayer.push({event:'custom_form_submit_error', error:'save_failed', ...payload});
+        }} else {{
+          window.dataLayer.push({{event:'custom_form_submit_error', ...payloadPreview}});
           alert('Sorry, nagka-issue sa pagsave. Pakisubukan ulit.');
-        }
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', function(){
-      // Each form is independent; submitting one does not validate the other
-      bindForm('maid-form', 'Looking for a maid');
-      bindForm('job-form',  'Jobseeker');
-    });
+        }}
+      }});
+    }}
+    document.addEventListener('DOMContentLoaded', function() {{
+      bindForm('maid-form','Looking for a maid');
+      bindForm('job-form','Jobseeker');
+    }});
   </script>
 </body>
 </html>
