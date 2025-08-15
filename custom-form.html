@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NannyProvider.PH — Form</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y3XFZ1LN7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2Y3XFZ1LN7');
+  </script>
+  <!-- GTM -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-T3H6DRN4');</script>
+  <style>.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:900px){.grid-2{grid-template-columns:1fr}}</style>
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H6DRN4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <header class="site-header">
+    <div class="wrap header-row">
+      <h1 class="logo"><a href="welcome.html">Nanny Provider PH</a></h1>
+      <nav class="nav">
+        <a href="custom-form.html" aria-current="page">Form</a>
+        <a href="welcome.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="mission.html">Mission &amp; Vision</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" style="padding:24px 0 32px">
+    <h2 style="margin:10px 0 14px">Quick Application</h2>
+    <p class="tiny">Fill the section that applies to you. Each section has its own Submit.</p>
+
+    <div class="grid-2">
+      <section class="card">
+        <h3>If you are looking for a maid</h3>
+        <form id="form-client" novalidate>
+          <div class="field"><label for="c_name">Name *</label><input id="c_name" name="name" required /></div>
+          <div class="field"><label for="c_phone">Phone number *</label><input id="c_phone" name="phone" required /></div>
+          <div class="field"><label for="c_email">Email *</label><input type="email" id="c_email" name="email" required /></div>
+          <div class="field"><label for="c_comments">Other comments</label><textarea id="c_comments" name="comments"></textarea></div>
+          <button class="btn" type="submit">Submit</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h3>Kung ikaw ay naghahanap ng mapapasukan</h3>
+        <form id="form-job" novalidate>
+          <div class="field"><label for="j_name">Pangalan *</label><input id="j_name" name="name" required /></div>
+          <div class="field"><label for="j_phone">Numero *</label><input id="j_phone" name="phone" required /></div>
+          <div class="field"><label for="j_email">Email *</label><input type="email" id="j_email" name="email" required /></div>
+          <div class="field"><label for="j_comments">Iba pang komento</label><textarea id="j_comments" name="comments"></textarea></div>
+          <button class="btn" type="submit">Isumite</button>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer class="wrap" style="padding:24px 0;color:#6b7280">
+    <small>© NannyProvider.PH — DOLE PEA LICENSE NO. M-23-00-016</small>
+  </footer>
+
+  <script>
+    const ENDPOINT='https://script.google.com/macros/s/AKfycbwXbPKhXxRa5K2MwlHw-3qnklwTIzTT82_S973h3cm3CveG5hYKBY1J498_Uq2j90SX/exec';
+    function submitToSheet(formEl, type){
+      if(!formEl.checkValidity()){formEl.reportValidity();try{window.dataLayer.push({event:'custom_form_invalid',where:'page'});}catch(e){};return;}
+      const data = {
+        type,
+        name: formEl.querySelector('[name="name"]').value.trim(),
+        phone: formEl.querySelector('[name="phone"]').value.trim(),
+        email: formEl.querySelector('[name="email"]').value.trim(),
+        comments: (formEl.querySelector('[name="comments"]')?.value || '').trim()
+      };
+      try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'custom_form_submit_attempt',where:'page',type:type});}catch(e){}
+      fetch(ENDPOINT,{method:'POST',mode:'cors',body:new URLSearchParams(data)})
+      .then(function(r){return r.json().catch(function(){return {ok:false,error:'parse'}});})
+      .then(function(j){if(j&&j.ok){try{window.dataLayer.push({event:'custom_form_submit_success',where:'page',type:type});}catch(e){};window.location.href='thank-you.html';}
+                 else{alert('Sorry, something went wrong. Please try again.');try{window.dataLayer.push({event:'custom_form_submit_error',where:'page',detail:String((j&&j.error)||'unknown')});}catch(e){}}})
+      .catch(function(err){alert('Network error. Please try again.');try{window.dataLayer.push({event:'custom_form_submit_error',where:'page',detail:String(err)});}catch(e){}});
+    }
+    document.getElementById('form-client').addEventListener('submit',function(e){e.preventDefault();submitToSheet(this,'client_looking_for_maid');});
+    document.getElementById('form-job').addEventListener('submit',function(e){e.preventDefault();submitToSheet(this,'jobseeker');});
+  </script>
+</body>
+</html>
