@@ -28,7 +28,7 @@
       --card:#ffffff;
       --ink:#1f2937;
       --muted:#6b7280;
-      --brand:#0a66c2; /* keep our existing blue */
+      --brand:#0a66c2;
       --ring:#dbeafe;
     }
     *{box-sizing:border-box}
@@ -42,7 +42,6 @@
     .nav a{padding:8px 10px;border-radius:8px}
     .nav a[aria-current="page"]{background:var(--ring)}
 
-    /* HERO like mykasambahay: bold headline + sub + two CTAs + badges */
     .hero{display:grid;grid-template-columns:1.15fr 0.85fr;gap:32px;align-items:center;padding:36px 0}
     .hero .eyebrow{color:var(--brand);font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.9rem}
     .hero h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:.2em 0 .3em}
@@ -53,35 +52,29 @@
     .badges{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
     .badge{background:var(--card);border:1px dashed #e5e7eb;color:#374151;border-radius:999px;padding:8px 12px;font-size:.9rem}
 
-    /* TRUST STRIP */
     .trust{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:14px;display:flex;gap:20px;align-items:center;justify-content:space-between;margin:10px 0 28px}
     .trust .kpi{display:flex;gap:12px;align-items:center}
     .kpi strong{font-size:1.2rem}
     .kpi small{color:var(--muted)}
 
-    /* SERVICES / CATEGORIES grid */
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .card{background:var(--card);border:1px solid #e5e7eb;border-radius:14px;padding:18px}
     .card h3{margin:0 0 6px}
     .card p{margin:6px 0 0;color:var(--muted)}
     .card .go{margin-top:12px;display:inline-block}
 
-    /* PROCESS strip (1-2-3) */
     .process{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:26px 0}
     .step{background:var(--card);border:1px solid #e5e7eb;border-radius:14px;padding:18px;position:relative}
     .step .n{position:absolute;top:14px;right:16px;background:var(--ring);color:#1e3a8a;border-radius:999px;font-weight:700;padding:4px 10px}
 
-    /* TESTIMONIALS (simple static) */
     .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:26px 0}
     .quote{background:var(--card);border:1px solid #e5e7eb;border-radius:14px;padding:18px}
     .quote p{margin:0 0 8px}
     .quote small{color:var(--muted)}
 
-    /* CTA banner */
     .cta-banner{background:#0b4f96;color:#fff;border-radius:16px;padding:24px;margin:34px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
     .cta-banner .btn{background:#fff;color:#0b4f96}
 
-    /* RESPONSIVE */
     @media (max-width: 900px){
       .hero{grid-template-columns:1fr;gap:18px}
       .grid,.process,.testimonials{grid-template-columns:1fr}
@@ -89,7 +82,6 @@
   </style>
 </head>
 <body>
-  <!-- GTM (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H6DRN4"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
@@ -107,7 +99,6 @@
   </header>
 
   <main class="wrap" id="main">
-    <!-- HERO -->
     <section class="hero">
       <div>
         <div class="eyebrow">DOLE PEA LICENSE NO. M-23-00-016</div>
@@ -124,21 +115,18 @@
         </div>
       </div>
       <div>
-        <!-- Optional hero image block; easily replace src or delete the <img> -->
         <div style="background:#e5eef9;border:1px solid #dbeafe;border-radius:16px;padding:8px;display:grid;place-items:center;aspect-ratio:4/3">
           <img src="https://static.wixstatic.com/media/d3b624_842194dcc14e455e828e2433bed94936~mv2.jpg/v1/fill/w_800,h_600,q_90,enc_avif,quality_auto/d3b624_842194dcc14e455e828e2433bed94936~mv2.jpg" alt="" style="max-width:100%;height:auto;border-radius:12px" onerror="this.style.display='none'">
         </div>
       </div>
     </section>
 
-    <!-- TRUST STRIP -->
     <section class="trust">
       <div class="kpi"><strong>Newly opened</strong><small>serving families & jobseekers</small></div>
       <div class="kpi"><strong>Personalized</strong><small>matching for the right fit</small></div>
       <div class="kpi"><strong>Support</strong><small>end-to-end assistance</small></div>
     </section>
 
-    <!-- SERVICES / CATEGORIES (like MyKasambahay "services" cards) -->
     <section>
       <h2 style="margin:8px 0 12px">Services</h2>
       <div class="grid">
@@ -150,7 +138,7 @@
         <article class="card">
           <h3>Housekeepers / Maids</h3>
           <p>Reliable household help for daily cleaning and chores.</p>
-          <a class="go" href="index.html">Hire a maid →</a>
+          <a class="go" href "index.html">Hire a maid →</a>
         </article>
         <article class="card">
           <h3>Cook / All-around</h3>
@@ -160,7 +148,6 @@
       </div>
     </section>
 
-    <!-- PROCESS (1-2-3) -->
     <section>
       <h2 style="margin:24px 0 12px">How it works</h2>
       <div class="process">
@@ -182,7 +169,6 @@
       </div>
     </section>
 
-    <!-- TESTIMONIALS (simple three-up) -->
     <section>
       <h2 style="margin:24px 0 12px">What families say</h2>
       <div class="testimonials">
@@ -192,7 +178,6 @@
       </div>
     </section>
 
-    <!-- CTA BANNER -->
     <section class="cta-banner">
       <div>
         <h2 style="margin:0 0 6px">Ready to begin?</h2>
@@ -210,7 +195,6 @@
   </footer>
 
   <script>
-    // simple dataLayer examples for key interactions
     document.querySelectorAll('a.btn').forEach(a => {
       a.addEventListener('click', () => {
         window.dataLayer = window.dataLayer || [];
