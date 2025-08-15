@@ -258,3 +258,14 @@ iframe{border:0}
 @media (max-width: 640px){
  .carousel .slide img { max-height: 55vh; }
 }
+.header-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 20px !important;
+}
+
+.header-row img.logo-img {
+  height: 60px !important;
+  margin-left: 10px !important;
+}
