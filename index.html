@@ -115,15 +115,31 @@
   </footer>
 
   <script>
-    const NP_ENDPOINT = "https://script.google.com/macros/s/AKfycbzuwXu-N_HIrjDjblac2E31snJ-z_YhaEvpjSGoBW8-TvzQ9ukTROiCA1yIETrvcEZM/exec";
-    async function sendFormData(typeLabel, fd) {
-      fd.append('type', typeLabel);
-      let ok = false;
-      try { const res = await fetch(NP_ENDPOINT, { method: 'POST', body: fd, credentials: 'omit' }); ok = res.ok; } catch(e) {}
-      if (!ok) {
-        try { await fetch(NP_ENDPOINT, { method: 'POST', body: fd, mode: 'no-cors', keepalive: true, credentials: 'omit' }); ok = true; } catch(e) { ok = false; }
+    const NP_ENDPOINT = "https://script.google.com/macros/s/AKfycbwXbPKhXxRa5K2MwlHw-3qnklwTIzTT82_S973h3cm3CveG5hYKBY1J498_Uq2j90SX/exec";
+    async function postURLEncoded(payload) {
+      try {
+        const res = await fetch(NP_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+          body: new URLSearchParams(payload).toString(),
+          credentials: 'omit'
+        });
+        return res.ok;
+      } catch(e) {
+        try {
+          await fetch(NP_ENDPOINT, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+            body: new URLSearchParams(payload).toString(),
+            credentials: 'omit',
+            keepalive: true
+          });
+          return true;
+        } catch(e2) {
+          return false;
+        }
       }
-      return ok;
     }
     function bindForm(formId, typeLabel) {
       const form = document.getElementById(formId);
@@ -137,16 +153,21 @@
           return;
         }
         const fd = new FormData(form);
-        const preview = { type: typeLabel, name: fd.get('name'), email: fd.get('email'), phone: fd.get('phone') };
+        const payload = {
+          type: typeLabel,
+          name: fd.get('name') || '',
+          phone: fd.get('phone') || '',
+          email: fd.get('email') || '',
+          comments: fd.get('comments') || ''
+        };
         window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({event:'custom_form_submit_attempt', ...preview});
-        const ok = await sendFormData(typeLabel, fd);
+        window.dataLayer.push({event:'custom_form_submit_attempt', ...payload});
+        const ok = await postURLEncoded(payload);
         if (ok) {
-          window.dataLayer.push({event:'custom_form_submit_success', ...preview});
+          window.dataLayer.push({event:'custom_form_submit_success', ...payload});
           window.location.href = 'thank-you.html?status=ok&type=' + encodeURIComponent(typeLabel);
         } else {
-          window.dataLayer.push({event:'custom_form_submit_error', ...preview});
-          // Still redirect to thank-you so users see confirmation; include status=maybe
+          window.dataLayer.push({event:'custom_form_submit_error', ...payload});
           window.location.href = 'thank-you.html?status=maybe&type=' + encodeURIComponent(typeLabel);
         }
       });
