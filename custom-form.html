@@ -9,7 +9,7 @@
 <body>
   <header class="site-header">
     <div class="wrap header-row">
-      <h1 class="logo"><a href="welcome.html" style="color:#111;text-decoration:none;">Nanny Provider PH</a></h1>
+      <h1 class="logo"><a href="welcome.html">Nanny Provider PH</a></h1>
       <nav class="nav">
         <a href="custom-form.html" aria-current="page">Form</a>
         <a href="welcome.html">Home</a>
@@ -19,38 +19,30 @@
       </nav>
     </div>
   </header>
-
   <main class="wrap page">
     <section class="card">
       <h2>Looking for a maid</h2>
-      <form action="https://formsubmit.co/nanny.provider1@gmail.com" method="POST" id="client-form">
-        <input type="hidden" name="_next" value="https://www.nannyprovider.com.ph/thank-you.html">
+      <form action="https://formsubmit.co/nanny.provider1@gmail.com" method="POST">
+        <input type="hidden" name="_next" value="https://bumout012.github.io/nannyph/thank-you.html">
         <input type="hidden" name="_subject" value="NannyProvider.PH — Client Looking for Maid">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="type" value="client_looking_for_maid">
         <input type="text" name="_honey" style="display:none">
-
-        <div class="field"><label for="c_name">Name *</label><input id="c_name" name="name" required></div>
-        <div class="field"><label for="c_phone">Phone *</label><input id="c_phone" name="phone" required></div>
-        <div class="field"><label for="c_email">Email *</label><input type="email" id="c_email" name="email" required></div>
-        <div class="field"><label for="c_comments">Other comments</label><textarea id="c_comments" name="comments"></textarea></div>
+        <div class="field"><label>Name *</label><input name="name" required></div>
+        <div class="field"><label>Phone *</label><input name="phone" required></div>
+        <div class="field"><label>Email *</label><input type="email" name="email" required></div>
         <button class="btn" type="submit">Submit</button>
       </form>
     </section>
-
     <section class="card" style="margin-top:18px">
       <h2>Jobseeker / Naghahanap ng mapapasukan</h2>
-      <form action="https://formsubmit.co/nanny.provider1@gmail.com" method="POST" id="jobseeker-form">
-        <input type="hidden" name="_next" value="https://www.nannyprovider.com.ph/thank-you.html">
+      <form action="https://formsubmit.co/nanny.provider1@gmail.com" method="POST">
+        <input type="hidden" name="_next" value="https://bumout012.github.io/nannyph/thank-you.html">
         <input type="hidden" name="_subject" value="NannyProvider.PH — Jobseeker Application">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="type" value="jobseeker">
         <input type="text" name="_honey" style="display:none">
-
-        <div class="field"><label for="j_name">Pangalan *</label><input id="j_name" name="name" required></div>
-        <div class="field"><label for="j_phone">Numero *</label><input id="j_phone" name="phone" required></div>
-        <div class="field"><label for="j_email">Email</label><input type="email" id="j_email" name="email"></div>
-        <div class="field"><label for="j_comments">Iba pang komento</label><textarea id="j_comments" name="comments"></textarea></div>
+        <div class="field"><label>Name *</label><input name="name" required></div>
+        <div class="field"><label>Phone *</label><input name="phone" required></div>
+        <div class="field"><label>Email *</label><input type="email" name="email" required></div>
         <button class="btn" type="submit">Submit</button>
       </form>
     </section>
