@@ -1,7 +1,8 @@
-# NannyProvider.PH — Full Test Bundle
-- Forms post **directly to email** via FormSubmit (no backend): `nanny.provider1@gmail.com`
-- On success, users are redirected to `thank-you.html` then auto-redirected to `welcome.html` after 30s.
+# NannyProvider.PH — Full Test Bundle (Tracking + GTM Events)
 
-Pages included: welcome, custom-form, about, mission, contact, team, thank-you + styles.css.
-
-**Remember:** First submission triggers a verification email from FormSubmit. Click its link once to enable forwarding.
+- **GA4**: G-2Y3XFZ1LN7 (head), **GTM**: GTM-T3H6DRN4 (head + noscript in body) on every page.
+- **Events pushed via script.js**:
+  - `cta_click` — for any primary buttons/links
+  - `form_submit_attempt` — on any form submission (before navigation)
+  - `thank_you_view` — when the thank-you page loads
+- Forms submit to email via **FormSubmit** (`nanny.provider1@gmail.com`) and redirect to `thank-you.html` then `index.html` in 30s.
