@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Thank You - Nanny Provider PH</title>
-
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="styles.css">
   <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y3XFZ1LN7"></script>
   <script>
@@ -14,64 +15,53 @@
     gtag('config', 'G-2Y3XFZ1LN7');
   </script>
   <!-- GTM -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+  var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+  j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl; f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-T3H6DRN4');</script>
-
-  <style>
-    :root{
-      --overlay: rgba(0,0,0,.55);
-      --ink:#fff; --muted:#E6ECF7;
-    }
-    html,body{margin:0;height:100%}
-    body{
-      min-height:100vh;
-      display:flex;align-items:center;justify-content:center;
-      color:var(--ink);text-align:center;
-      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-      background:
-        linear-gradient(135deg,#0b4f96 0%, #0a66c2 100%),
-        url('https://images.unsplash.com/photo-1524492449090-1a065f2f9b39?auto=format&fit=crop&w=1600&q=80')
-        no-repeat center center;
-      background-size:cover;
-      background-blend-mode: overlay;
-    }
-    .message{
-      background:var(--overlay);
-      padding:22px 24px;border-radius:12px;
-      max-width:760px;margin:16px;
-      backdrop-filter: blur(2px);
-    }
-    h1{margin:0 0 10px;font-size:clamp(22px,4.5vw,40px);line-height:1.2}
-    p{margin:6px 0}.note{color:var(--muted)}
-    .actions{margin-top:12px}
-    .btn{display:inline-block;background:#fff;color:#0b4f96;
-      padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
-  </style>
 </head>
 <body>
   <!-- GTM (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H6DRN4"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-  <div class="message">
-    <h1>Maraming salamat po sa pagtugon!</h1>
-    <p>Maaari pong maghintay at isa po sa aming staff ang tatawag sa inyo sa lalong madaling panahon.</p>
-    <p><em>Please wait and someone from our staff will contact you soonest.</em></p>
-    <p class="note">You will be redirected to the Home page in 30 seconds…</p>
-    <div class="actions">
-      <a class="btn" href="welcome.html">Go to Home now</a>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H6DRN4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <h1 class="logo"><a href="index.html" style="color:#111;text-decoration:none;">Nanny Provider PH</a></h1>
+      <nav class="nav">
+        <a href="index.html">Form</a>
+        <a href="welcome.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="mission.html">Mission &amp; Vision</a>
+        <a href="contact.html">Contact</a>
+        <a href="team.html">Team</a>
+      </nav>
     </div>
-  </div>
+  </header>
 
-  <script>
-    // Redirect after 30s
-    setTimeout(function(){ window.location.href = "welcome.html"; }, 30000);
-    // Push GTM event
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({event:'thank_you_view'});
-  </script>
+  <main class="wrap">
+    <section class="card" style="text-align:center">
+      <h1>Maraming salamat po sa pagtugon!</h1>
+      <p>Maaari pong maghintay at isa po sa aming staff ang tatawag sa inyo sa lalong madaling panahon.</p>
+      <p><em>Please wait and someone from our staff will contact you soonest.</em></p>
+      <p>You will be redirected to Home in 30 seconds…</p>
+      <p><a class="btn" href="welcome.html">Go to Home now</a></p>
+    </section>
+  </main>
+  <style>
+    body::before{
+      content:"";
+      position:fixed;inset:0;
+      background:
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+        url('https://images.unsplash.com/photo-1604881991720-f91add269bed?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat;
+      z-index:-1;
+    }
+  </style>
+  <script>setTimeout(function(){location.href='welcome.html'},30000);</script>
+  <footer class="wrap footer">
+    <div class="footer-inner">
+      <small>&copy; NannyProvider.PH — DOLE PEA LICENSE NO. M-23-00-016</small>
+      <small>206 Casa Susana Bldg. 1121 Pedro Gil St., Brgy. 675, Paco Manila • Daily 9:00 AM — 6:00 PM</small>
+    </div>
+  </footer>
 </body>
 </html>

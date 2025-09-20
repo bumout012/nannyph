@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NannyProvider.PH — Form</title>
+  <title>NannyProvider.PH — Custom Form</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="styles.css">
-
-  <!-- Google tag (gtag.js) -->
+  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y3XFZ1LN7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -14,29 +14,21 @@
     gtag('js', new Date());
     gtag('config', 'G-2Y3XFZ1LN7');
   </script>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  <!-- GTM -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+  var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+  j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl; f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-T3H6DRN4');</script>
-
-  <script src="script.js" defer></script>
 </head>
 <body>
-
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H6DRN4"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-
+  <!-- GTM (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H6DRN4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <header class="site-header">
     <div class="wrap header-row">
       <h1 class="logo"><a href="index.html" style="color:#111;text-decoration:none;">Nanny Provider PH</a></h1>
-      
       <nav class="nav">
-        <a href="custom-form.html" aria-current="page">Form</a>
-        <a href="index.html">Home</a>
+        <a href="index.html" aria-current="page">Form</a>
+        <a href="welcome.html">Home</a>
         <a href="about.html">About</a>
         <a href="mission.html">Mission &amp; Vision</a>
         <a href="contact.html">Contact</a>
@@ -44,15 +36,15 @@
       </nav>
     </div>
   </header>
-  <main class="wrap page">
+
+  <main class="wrap">
     <section class="card">
       <h2>Looking for a maid</h2>
       <form action="https://formsubmit.co/nanny.provider1@gmail.com" method="POST">
-        <input type="hidden" name="_next" value="https://bumout012.github.io/nannyph/thank-you.html">
-        <input type="hidden" name="_subject" value="NannyProvider.PH — Client Looking for Maid">
+        <input type="hidden" name="_next" value="thank-you.html">
+        <input type="hidden" name="_subject" value="NannyProvider.PH — Client Inquiry">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="type" value="client_looking_for_maid">
         <input type="text" name="_honey" style="display:none">
         <div class="field"><label>Name *</label><input name="name" required></div>
         <div class="field"><label>Phone *</label><input name="phone" required></div>
@@ -62,29 +54,27 @@
       </form>
     </section>
 
-    <section class="card" style="margin-top:18px">
+    <section class="card">
       <h2>Jobseeker / Naghahanap ng mapapasukan</h2>
       <form action="https://formsubmit.co/nanny.provider1@gmail.com" method="POST">
-        <input type="hidden" name="_next" value="https://bumout012.github.io/nannyph/thank-you.html">
+        <input type="hidden" name="_next" value="thank-you.html">
         <input type="hidden" name="_subject" value="NannyProvider.PH — Jobseeker Application">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="type" value="jobseeker">
         <input type="text" name="_honey" style="display:none">
-        <div class="field"><label>Pangalan *</label><input name="name" required></div>
-        <div class="field"><label>Numero *</label><input name="phone" required></div>
-        <div class="field"><label>Email *</label><input type="email" name="email" required></div>
+        <div class="field"><label>Pangalan *</label><input name="pangalan" required></div>
+        <div class="field"><label>Numero *</label><input name="numero" required></div>
+        <div class="field"><label>Email</label><input type="email" name="email"></div>
         <div class="field"><label>Iba pang komento</label><textarea name="comments"></textarea></div>
-        <button class="btn" type="submit">Submit</button>
+        <button class="btn" type="submit">Isumite</button>
       </form>
     </section>
   </main>
-
-  <footer class="site-footer">
-    <div class="wrap">
-      <p>© NannyProvider.PH — DOLE PEA LICENSE NO. M-23-00-016 &nbsp; | &nbsp; 206 Casa Susana Bldg. 1121 Pedro Gil St., Brgy. 675, Paco Manila • Daily 9:00 AM — 6:00 PM</p>
+  <footer class="wrap footer">
+    <div class="footer-inner">
+      <small>&copy; NannyProvider.PH — DOLE PEA LICENSE NO. M-23-00-016</small>
+      <small>206 Casa Susana Bldg. 1121 Pedro Gil St., Brgy. 675, Paco Manila • Daily 9:00 AM — 6:00 PM</small>
     </div>
   </footer>
-
 </body>
 </html>
