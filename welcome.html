@@ -36,7 +36,6 @@
     </div>
   </header>
 
-
   <main class="wrap">
     <section class="card">
       <h2>Welcome to NannyProvider.PH!</h2>
@@ -58,7 +57,7 @@
       <div>
         <div class="form-card" aria-label="Quick Inquiry Form">
           <h3 style="margin:0 0 8px">Quick Inquiry</h3>
-          <form id="home-quick-form" action="https://formsubmit.co/nanny.provider1@gmail.com" method="POST">
+          <form id="home-quick-form" action="https://formsubmit.co/nanny.provider1@gmail.com" method="POST" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">
             <input type="hidden" name="_next" value="thank-you.html">
             <input type="hidden" name="_subject" value="NannyProvider.PH — Quick Inquiry (Home)">
             <input type="hidden" name="_captcha" value="false">
@@ -90,12 +89,102 @@
       <p>Welcome to NannyProvider.PH, your newly opened employment agency that specializes in matching nannies with suitable families! Our team strives to provide efficient, comprehensive and personalized services to help seamlessly connect families with the perfect nanny.</p>
       <p class="license">DOLE PEA LICENSE NO. M-23-00-016</p>
     </section>
+
+
+    <section>
+      <h2 style="margin:8px 0 12px">Services</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Nannies</h3>
+          <p>Care for infants and children with dependable, trained staff.</p>
+          <a class="go" href="custom-form.html">Hire a nanny →</a>
+        </article>
+        <article class="card">
+          <h3>Housekeepers / Maids</h3>
+          <p>Reliable household help for daily cleaning and chores.</p>
+          <a class="go" href="custom-form.html">Hire a maid →</a>
+        </article>
+        <article class="card">
+          <h3>Cook / All-around</h3>
+          <p>Skilled help for cooking and multi-role household support.</p>
+          <a class="go" href="custom-form.html">Inquire now →</a>
+        </article>
+      </div>
+    </section>
+
+
+    <section>
+      <h2 style="margin:24px 0 12px">How it works</h2>
+      <div class="process">
+        <div class="step"><span class="n">1</span><h3>Tell us your needs</h3><p>Use the quick form or the full form.</p></div>
+        <div class="step"><span class="n">2</span><h3>We match quickly</h3><p>Our team screens and matches candidates to your requirements.</p></div>
+        <div class="step"><span class="n">3</span><h3>Start with confidence</h3><p>We assist with coordination and after-care support.</p></div>
+      </div>
+    </section>
+
+
+    <section>
+      <h2 style="margin:24px 0 12px">What families say</h2>
+      <div class="testimonials">
+        <div class="quote"><p>“Very helpful team. We found our nanny fast.”</p><small>— Client in Manila</small></div>
+        <div class="quote"><p>“Smooth process from start to finish.”</p><small>— Family in Makati</small></div>
+        <div class="quote"><p>“They genuinely cared about our needs.”</p><small>— Parent in QC</small></div>
+      </div>
+    </section>
+
+
+    <section class="cta-banner">
+      <div>
+        <h2 style="margin:0 0 6px">Ready to begin?</h2>
+        <p style="margin:0;color:#e8eef9">Complete the short form and our staff will contact you soonest.</p>
+      </div>
+      <a class="btn" href="custom-form.html">Go to Full Form</a>
+    </section>
+
+  
+    
+
+  
+    
+    </div>
+
+  
+    <section class="cta-banner" style="background:#f3f4f6;color:#111;text-align:center">
+      <div style="width:100%">
+        <h3 style="margin:0 0 12px">Follow us</h3>
+        <div class="cta-row" style="justify-content:center;flex-wrap:wrap;gap:10px">
+          <a class="btn ghost" href="https://www.facebook.com/nannyproviderph" target="_blank">Facebook</a>
+          <a class="btn ghost" href="https://x.com/NannyProviderPH" target="_blank">X</a>
+          <a class="btn ghost" href="https://www.tiktok.com/@nannyproviderph" target="_blank">TikTok</a>
+          <a class="btn ghost" href="https://www.tiktok.com/@nannyprovider.ph" target="_blank">TikTok Alt</a>
+          <a class="btn ghost" href="https://www.instagram.com/nannyprovider.ph/" target="_blank">Instagram</a>
+        </div>
+      </div>
+    </section>
+
   </main>
   <footer class="wrap footer">
     <div class="footer-inner">
       <small>&copy; NannyProvider.PH — DOLE PEA LICENSE NO. M-23-00-016</small>
-      <small>206 Casa Susana Bldg. 1121 Pedro Gil St., Brgy. 675, Paco Manila • Daily 9:00 AM — 6:00 PM</small>
+      <small>206 206 Casa Susana Building, 1121 Pedro Gil St., Paco Manila • Daily 9:00 AM — 6:00 PM</small>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('form').forEach(function(f){
+        const next = f.querySelector('input[name="_next"]');
+        if(next){
+          try{ next.value = new URL(next.value || 'thank-you.html', window.location.href).href; }catch(e){}
+        }
+        f.addEventListener('submit', function(e){
+          if(!f.checkValidity()){
+            e.preventDefault();
+            f.reportValidity();
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

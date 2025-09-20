@@ -40,7 +40,7 @@
   <main class="wrap">
     <section class="card">
       <h2>Looking for a maid</h2>
-      <form action="https://formsubmit.co/nanny.provider1@gmail.com" method="POST">
+      <form enctype="application/x-www-form-urlencoded" accept-charset="UTF-8" action="https://formsubmit.co/nanny.provider1@gmail.com" method="POST">
         <input type="hidden" name="_next" value="thank-you.html">
         <input type="hidden" name="_subject" value="NannyProvider.PH — Client Inquiry">
         <input type="hidden" name="_captcha" value="false">
@@ -56,7 +56,7 @@
 
     <section class="card">
       <h2>Jobseeker / Naghahanap ng mapapasukan</h2>
-      <form action="https://formsubmit.co/nanny.provider1@gmail.com" method="POST">
+      <form enctype="application/x-www-form-urlencoded" accept-charset="UTF-8" action="https://formsubmit.co/nanny.provider1@gmail.com" method="POST">
         <input type="hidden" name="_next" value="thank-you.html">
         <input type="hidden" name="_subject" value="NannyProvider.PH — Jobseeker Application">
         <input type="hidden" name="_captcha" value="false">
@@ -73,8 +73,39 @@
   <footer class="wrap footer">
     <div class="footer-inner">
       <small>&copy; NannyProvider.PH — DOLE PEA LICENSE NO. M-23-00-016</small>
-      <small>206 Casa Susana Bldg. 1121 Pedro Gil St., Brgy. 675, Paco Manila • Daily 9:00 AM — 6:00 PM</small>
+      <small>206 206 Casa Susana Building, 1121 Pedro Gil St., Paco Manila • Daily 9:00 AM — 6:00 PM</small>
     </div>
   </footer>
+
+  <script>
+    // Minimal client-side guard to avoid empty posts and surface browser errors neatly
+    function npValidate(e){
+      const form = e.target;
+      if(!form.checkValidity()){
+        e.preventDefault();
+        form.reportValidity();
+      }
+    }
+    document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('form').forEach(f => {
+        f.addEventListener('submit', npValidate);
+      });
+    });
+  </script>
+
+  <script>
+    // Ensure _next points to an absolute URL for reliable redirection after submit
+    document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('form').forEach(function(f){
+        const next = f.querySelector('input[name="_next"]');
+        if(next){
+          try{
+            const abs = new URL(next.value || 'thank-you.html', window.location.href).href;
+            next.value = abs;
+          }catch(e){ /* no-op */ }
+        }
+      });
+    });
+  </script>
 </body>
 </html>

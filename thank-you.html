@@ -42,25 +42,52 @@
       <h1>Maraming salamat po sa pagtugon!</h1>
       <p>Maaari pong maghintay at isa po sa aming staff ang tatawag sa inyo sa lalong madaling panahon.</p>
       <p><em>Please wait and someone from our staff will contact you soonest.</em></p>
-      <p>You will be redirected to Home in 30 seconds…</p>
-      <p><a class="btn" href="welcome.html">Go to Home now</a></p>
+      <p>You will be redirected to Home in <strong><span id="countdown">30</span> seconds</strong>…</p>
+      <p style="margin-top:28px">
+        <a class="btn ghost" href="welcome.html">Return to Home</a>
+      </p>
+
+      
     </section>
   </main>
+  
   <style>
+    /* Robust full-viewport background overlay */
+    body{position:relative;min-height:100vh;}
     body::before{
       content:"";
       position:fixed;inset:0;
       background:
         linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
         url('https://images.unsplash.com/photo-1604881991720-f91add269bed?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat;
-      z-index:-1;
+      pointer-events:none;
+      z-index:0; /* sit behind content but above the page background */
     }
+    header, main, footer{position:relative;z-index:1;}
   </style>
-  <script>setTimeout(function(){location.href='welcome.html'},30000);</script>
+
+  
+  <script>
+    (function(){
+      var seconds = 30;
+      var el = document.getElementById('countdown');
+      var timer = setInterval(function(){
+        seconds -= 1;
+        if(el){ el.textContent = seconds; }
+        if(seconds <= 0){
+          clearInterval(timer);
+          window.location.href = 'welcome.html';
+        }
+      }, 1000);
+      // Fallback in case setInterval is throttled
+      setTimeout(function(){ window.location.href = 'welcome.html'; }, 30000);
+    })();
+  </script>
+
   <footer class="wrap footer">
     <div class="footer-inner">
       <small>&copy; NannyProvider.PH — DOLE PEA LICENSE NO. M-23-00-016</small>
-      <small>206 Casa Susana Bldg. 1121 Pedro Gil St., Brgy. 675, Paco Manila • Daily 9:00 AM — 6:00 PM</small>
+      <small>206 206 Casa Susana Building, 1121 Pedro Gil St., Paco Manila • Daily 9:00 AM — 6:00 PM</small>
     </div>
   </footer>
 </body>

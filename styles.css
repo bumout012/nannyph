@@ -66,3 +66,21 @@ a{color:var(--brand);text-decoration:none}
   .hero{grid-template-columns:1fr;gap:18px}
   .grid,.process,.testimonials,.team-grid{grid-template-columns:1fr}
 }
+
+
+/* Hover effect for social CTA buttons */
+.cta-banner .btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: all 0.2s ease-in-out;
+}
+
+
+/* Subtle hover effects for CTA banner buttons (including Social CTAs) */
+.cta-banner .btn{
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.cta-banner .btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0,0,0,.12);
+}
