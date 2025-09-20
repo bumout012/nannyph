@@ -63,6 +63,36 @@
       </div>
     </section>
 
+  
+    <section class="card" style="margin-top:30px">
+      <h2>From our TikTok</h2>
+      \1
+      <p style="margin-top:10px">
+        <a class="btn" href="https://www.tiktok.com/@nannyprovider.ph" target="_blank" rel="noopener" data-cta="tiktok_watch">Watch on TikTok</a>
+      </p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px">
+        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@nannyprovider.ph" data-unique-id="nannyprovider.ph" data-embed-type="creator" style="max-width: 305px;min-width: 220px;">
+          <section> <a target="_blank" href="https://www.tiktok.com/@nannyprovider.ph">@nannyprovider.ph</a> </section>
+        </blockquote>
+        <script async src="https://www.tiktok.com/embed.js"></script>
+      </div>
+    </section>
+
+  
+    <section class="cta-banner">
+      <div>
+        <h2 style="margin:0 0 6px">Follow us</h2>
+        <p style="margin:0;color:#e8eef9">Connect with us on social for updates and inquiries.</p>
+      </div>
+      <div class="cta-row" style="gap:10px;flex-wrap:wrap">
+        <a class="btn" href="https://www.facebook.com/nannyproviderph" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook" data-cta="social_facebook">📘</a>
+        <a class="btn" href="https://x.com/NannyProviderPH" target="_blank" rel="noopener" title="X" aria-label="X" data-cta="social_x">✖️</a>
+        <a class="btn" href="https://www.tiktok.com/@nannyproviderph" target="_blank" rel="noopener" title="TikTok" aria-label="TikTok" data-cta="social_tiktok_primary">🎵</a>
+        <a class="btn" href="https://www.tiktok.com/@nannyprovider.ph" target="_blank" rel="noopener" title="TikTok (alt)" aria-label="TikTok (alt)" data-cta="social_tiktok_alt">🎵</a>
+        <a class="btn" href="https://www.instagram.com/nannyprovider.ph/" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram" data-cta="social_instagram">📸</a>
+      </div>
+    </section>
+
   </main>
   <footer class="wrap footer">
     <div class="footer-inner">
@@ -70,5 +100,41 @@
       <small>206 206 Casa Susana Building, 1121 Pedro Gil St., Paco Manila • Daily 9:00 AM — 6:00 PM</small>
     </div>
   </footer>
+
+  <script>
+    (function(){
+      try {
+        var seen = localStorage.getItem('np_first_seen');
+        var onForm = /index\.html$/.test(window.location.pathname);
+        if(!seen && !onForm){
+          // Set a short timeout to avoid blocking initial paint
+          setTimeout(function(){
+            try{ localStorage.setItem('np_first_seen', '1'); }catch(e){}
+            window.location.href = 'index.html';
+          }, 50);
+        }
+      } catch(e){ /* ignore private mode errors */ }
+    })();
+  </script>
+
+  <script>
+    (function(){
+      window.dataLayer = window.dataLayer || [];
+      document.addEventListener('click', function(e){
+        var a = e.target.closest && e.target.closest('a[data-cta]');
+        if(!a) return;
+        try {
+          window.dataLayer.push({
+            event: 'cta_click',
+            cta_id: a.getAttribute('data-cta') || '',
+            cta_href: a.getAttribute('href') || '',
+            cta_text: (a.textContent || '').trim(),
+            page_title: document.title,
+            page_location: location.href
+          });
+        } catch(err){/* noop */}
+      }, {passive:true});
+    })();
+  </script>
 </body>
 </html>

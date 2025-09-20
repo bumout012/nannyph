@@ -8,5 +8,25 @@
 </head>
 <body>
   <p>Redirecting to <a href="welcome.html">Home</a>…</p>
+
+  <script>
+    (function(){
+      window.dataLayer = window.dataLayer || [];
+      document.addEventListener('click', function(e){
+        var a = e.target.closest && e.target.closest('a[data-cta]');
+        if(!a) return;
+        try {
+          window.dataLayer.push({
+            event: 'cta_click',
+            cta_id: a.getAttribute('data-cta') || '',
+            cta_href: a.getAttribute('href') || '',
+            cta_text: (a.textContent || '').trim(),
+            page_title: document.title,
+            page_location: location.href
+          });
+        } catch(err){/* noop */}
+      }, {passive:true});
+    })();
+  </script>
 </body>
 </html>
