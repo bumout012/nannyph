@@ -37,14 +37,9 @@
   </header>
 
   <main class="wrap">
-    <section class="card">
-      <h2>Welcome to NannyProvider.PH!</h2>
-      <h3>Employment Agency!</h3>
-      <p><strong>DOLE PEA LICENSE NO. M-23-00-016</strong></p>
-      <p>Hello everyone! On behalf of NannyProvider.PH, I would like to introduce our local employment agency located at 206 Casa Susana Building, 1121 Pedro Gil St., Paco Manila.</p>
-    </section>
-
+    <!-- Two-column hero: LEFT TikTok + RIGHT Quick Inquiry -->
     <section class="hero">
+      <!-- LEFT: Tagline + badges + TikTok preview (compact) -->
       <div>
         <div class="eyebrow">Quick Inquiry</div>
         <p>Send a brief message and our staff will reach out.</p>
@@ -53,53 +48,53 @@
           <span class="badge">Quick Matching</span>
           <span class="badge">Personalized Support</span>
         </div>
+        <div class="card" style="margin-top:10px">
+          <h3 style="margin:0 0 8px">From our TikTok</h3>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px">
+            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@nannyprovider.ph" data-unique-id="nannyprovider.ph" data-embed-type="creator" style="max-width: 360px;min-width: 220px;">
+              <section><a target="_blank" href="https://www.tiktok.com/@nannyprovider.ph">@nannyprovider.ph</a></section>
+            </blockquote>
+          </div>
+          <p style="margin-top:10px">
+            <a class="btn" href="https://www.tiktok.com/@nannyprovider.ph" target="_blank" rel="noopener" data-cta="tiktok_watch">Watch on TikTok</a>
+          </p>
+        </div>
       </div>
+
+      <!-- RIGHT: Quick Inquiry form -->
       <div>
-        <div class="form-card" aria-label="Quick Inquiry Form">
+        <div class="form-card" aria-label="Quick Inquiry">
           <h3 style="margin:0 0 8px">Quick Inquiry</h3>
-          <form id="home-quick-form" action="https://formsubmit.co/nanny.provider1@gmail.com" method="POST" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">
+          <form id="hero-form" action="https://formsubmit.co/nanny.provider1@gmail.com" method="POST" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">
             <input type="hidden" name="_next" value="thank-you.html">
-            <input type="hidden" name="_subject" value="NannyProvider.PH — Quick Inquiry (Home)">
+            <input type="hidden" name="_subject" value="NannyProvider.PH — Quick Inquiry">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
             <input type="text" name="_honey" style="display:none">
             <div class="field">
-              <label for="hq_type">I am *</label>
-              <select id="hq_type" name="type" required>
+              <label for="h_type">I am *</label>
+              <select id="h_type" name="type" required>
                 <option value="" disabled selected>Choose one</option>
                 <option value="client_looking_for_maid">Looking for a maid</option>
                 <option value="jobseeker">Jobseeker</option>
               </select>
             </div>
-            <div class="field"><label for="hq_name">Name *</label><input id="hq_name" name="name" required></div>
-            <div class="field"><label for="hq_phone">Phone *</label><input id="hq_phone" name="phone" required></div>
-            <div class="field"><label for="hq_email">Email *</label><input type="email" id="hq_email" name="email" required></div>
-            <div class="field"><label for="hq_comments">Other comments</label><textarea id="hq_comments" name="comments"></textarea></div>
+            <div class="field"><label for="h_name">Name *</label><input id="h_name" name="name" required></div>
+            <div class="field"><label for="h_phone">Phone *</label><input id="h_phone" name="phone" required></div>
+            <div class="field"><label for="h_email">Email *</label><input type="email" id="h_email" name="email" required></div>
+            <div class="field"><label for="h_comments">Other comments</label><textarea id="h_comments" name="comments"></textarea></div>
             <button class="btn" type="submit">Submit</button>
-            <div class="tiny">Need more fields? Use the <a href="custom-form.html">full form</a>.</div>
+            <div class="tiny">Or use the <a href="custom-form.html">full form</a>.</div>
           </form>
         </div>
       </div>
     </section>
 
-    <section class="card" style="margin-top:30px">
-      <h2>From our TikTok</h2>
-      <p>Follow us on <a href="https://www.tiktok.com/@nannyprovider.ph" target="_blank">@nannyprovider.ph</a></p>
-      <p style="margin-top:10px">
-        <a class="btn" href="https://www.tiktok.com/@nannyprovider.ph" target="_blank" rel="noopener" data-cta="tiktok_watch">Watch on TikTok</a>
-      </p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:16px">
-        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@nannyprovider.ph" data-unique-id="nannyprovider.ph" data-embed-type="creator" style="max-width: 540px;min-width: 320px;">
-          <section> <a target="_blank" href="https://www.tiktok.com/@nannyprovider.ph">@nannyprovider.ph</a> </section>
-        </blockquote>
-        <script async src="https://www.tiktok.com/embed.js"></script>
-      </div>
-    </section>
-
     <section class="card">
-      <h2>About Us</h2>
-      <p>Welcome to NannyProvider.PH, your newly opened employment agency that specializes in matching nannies with suitable families! Our team strives to provide efficient, comprehensive and personalized services to help seamlessly connect families with the perfect nanny.</p>
-      <p class="license">DOLE PEA LICENSE NO. M-23-00-016</p>
+      <h2>Welcome to NannyProvider.PH!</h2>
+      <h3>Employment Agency!</h3>
+      <p><strong>DOLE PEA LICENSE NO. M-23-00-016</strong></p>
+      <p>Hello everyone! On behalf of NannyProvider.PH, I would like to introduce our local employment agency located at 206 Casa Susana Building, 1121 Pedro Gil St., Paco Manila.</p>
     </section>
 
     <section>
@@ -134,7 +129,7 @@
         <h2 style="margin:0 0 6px">Ready to begin?</h2>
         <p style="margin:0;color:#e8eef9">Complete the short form and our staff will contact you soonest.</p>
       </div>
-      <a class="btn" href="custom-form.html">Go to Full Form</a>
+      <a class="btn" href="custom-form.html" data-cta="go_full_form">Go to Full Form</a>
     </section>
   </main>
   <footer class="wrap footer">
@@ -164,33 +159,12 @@
   </script>
 
   <script>
-    (function(){
-      try {
-        var seen = localStorage.getItem('np_first_seen');
-        var onForm = /index\.html$/.test(window.location.pathname);
-        if(!seen && !onForm){
-          setTimeout(function(){
-            try{ localStorage.setItem('np_first_seen', '1'); }catch(e){}
-            window.location.href = 'index.html';
-          }, 50);
-        }
-      } catch(e){}
-    })();
-  </script>
-
-
-  <script>
     document.addEventListener('DOMContentLoaded', function(){
       document.querySelectorAll('form').forEach(function(f){
-        const next = f.querySelector('input[name="_next"]');
-        if(next){
-          try{ next.value = new URL(next.value || 'thank-you.html', window.location.href).href; }catch(e){}
-        }
+        var next = f.querySelector('input[name="_next"]');
+        if(next){ try{ next.value = new URL(next.value || 'thank-you.html', window.location.href).href; }catch(e){} }
         f.addEventListener('submit', function(e){
-          if(!f.checkValidity()){
-            e.preventDefault();
-            f.reportValidity();
-          }
+          if(!f.checkValidity()){ e.preventDefault(); f.reportValidity(); }
         });
       });
     });
@@ -200,16 +174,13 @@
 
   <!-- NP Support Chat Widget -->
   <div id="np-chat-launcher" class="np-chat-launcher" role="button" aria-label="Open support chat" data-cta="chat_open">Help</div>
-
   <div id="np-chat-panel" class="np-chat-panel" aria-hidden="true">
     <div class="np-chat-header">
       <strong>Need help?</strong>
       <button class="np-chat-close" type="button" aria-label="Close chat">&times;</button>
     </div>
     <div class="np-chat-body">
-      <div class="np-chat-welcome">
-        <p>Hi! Send us a message and we'll reply by email.</p>
-      </div>
+      <div class="np-chat-welcome"><p>Hi! Send us a message and we'll reply by email.</p></div>
       <form id="np-chat-form" action="https://formsubmit.co/nanny.provider1@gmail.com" method="POST" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">
         <input type="hidden" name="_subject" value="NannyProvider.PH — Support Chat Message">
         <input type="hidden" name="_next" value="thank-you.html">
@@ -218,7 +189,6 @@
         <input type="text" name="_honey" style="display:none">
         <input type="hidden" name="page" value="" id="np-chat-page">
         <input type="hidden" name="timestamp" value="" id="np-chat-time">
-
         <div class="field"><label for="np_chat_name">Name *</label><input id="np_chat_name" name="name" required></div>
         <div class="field"><label for="np_chat_email">Email *</label><input id="np_chat_email" name="email" type="email" required></div>
         <div class="field"><label for="np_chat_msg">Message *</label><textarea id="np_chat_msg" name="message" required placeholder="Type your question..."></textarea></div>
@@ -227,7 +197,6 @@
       </form>
     </div>
   </div>
-
   <script>
     (function(){
       var launcher = document.getElementById('np-chat-launcher');
@@ -239,58 +208,17 @@
       var msgEl = document.getElementById('np_chat_msg');
       var pageEl = document.getElementById('np-chat-page');
       var timeEl = document.getElementById('np-chat-time');
-
-      function setAbsNext(){
-        var next = form && form.querySelector('input[name="_next"]');
-        if(next){ 
-          try{ next.value = new URL(next.value || 'thank-you.html', location.href).href; }catch(e){}
-        }
-      }
-
-      function saveDraft(){ 
-        try { localStorage.setItem('np_chat_name', nameEl.value || ''); } catch(e){}
-        try { localStorage.setItem('np_chat_email', emailEl.value || ''); } catch(e){}
-        try { localStorage.setItem('np_chat_msg', msgEl.value || ''); } catch(e){}
-      }
-      function loadDraft(){
-        try { nameEl.value = localStorage.getItem('np_chat_name') || ''; } catch(e){}
-        try { emailEl.value = localStorage.getItem('np_chat_email') || ''; } catch(e){}
-        try { msgEl.value = localStorage.getItem('np_chat_msg') || ''; } catch(e){}
-      }
-      function setMeta(){
-        if(pageEl) pageEl.value = location.href;
-        if(timeEl) timeEl.value = new Date().toISOString();
-      }
-      function openChat(){
-        if(!panel) return;
-        panel.setAttribute('aria-hidden','false');
-        panel.classList.add('open');
-        try{ localStorage.setItem('np_chat_open','1'); }catch(e){}
-        if(window.dataLayer){ window.dataLayer.push({event:'cta_click', cta_id:'chat_open', page_location:location.href, page_title:document.title}); }
-      }
-      function closeChat(){
-        if(!panel) return;
-        panel.setAttribute('aria-hidden','true');
-        panel.classList.remove('open');
-        try{ localStorage.removeItem('np_chat_open'); }catch(e){}
-      }
-
+      function setAbsNext(){ var next = form && form.querySelector('input[name="_next"]'); if(next){ try{ next.value = new URL(next.value || 'thank-you.html', location.href).href; }catch(e){} } }
+      function saveDraft(){ try { localStorage.setItem('np_chat_name', nameEl.value || ''); localStorage.setItem('np_chat_email', emailEl.value || ''); localStorage.setItem('np_chat_msg', msgEl.value || ''); } catch(e){} }
+      function loadDraft(){ try { nameEl.value = localStorage.getItem('np_chat_name') || ''; emailEl.value = localStorage.getItem('np_chat_email') || ''; msgEl.value = localStorage.getItem('np_chat_msg') || ''; } catch(e){} }
+      function setMeta(){ if(pageEl) pageEl.value = location.href; if(timeEl) timeEl.value = new Date().toISOString(); }
+      function openChat(){ if(!panel) return; panel.setAttribute('aria-hidden','false'); panel.classList.add('open'); try{ localStorage.setItem('np_chat_open','1'); }catch(e){}; if(window.dataLayer){ window.dataLayer.push({event:'cta_click', cta_id:'chat_open', page_location:location.href, page_title:document.title}); } }
+      function closeChat(){ if(!panel) return; panel.setAttribute('aria-hidden','true'); panel.classList.remove('open'); try{ localStorage.removeItem('np_chat_open'); }catch(e){} }
       if(launcher) launcher.addEventListener('click', openChat, {passive:true});
       if(closeBtn) closeBtn.addEventListener('click', closeChat, {passive:true});
-
-      if(form){ 
-        setAbsNext();
-        setMeta();
-        loadDraft();
-        nameEl.addEventListener('input', saveDraft);
-        emailEl.addEventListener('input', saveDraft);
-        msgEl.addEventListener('input', saveDraft);
-        form.addEventListener('submit', function(){ 
-          saveDraft();
-          if(window.dataLayer){ window.dataLayer.push({event:'cta_click', cta_id:'chat_send', page_location:location.href, page_title:document.title}); }
-        });
-      }
-
+      if(form){ setAbsNext(); setMeta(); loadDraft(); nameEl.addEventListener('input', saveDraft); emailEl.addEventListener('input', saveDraft); msgEl.addEventListener('input', saveDraft); form.addEventListener('submit', function(){ saveDraft(); if(window.dataLayer){ window.dataLayer.push({event:'cta_click', cta_id:'chat_send', page_location:location.href, page_title:document.title}); } }); }
       try{ if(localStorage.getItem('np_chat_open')==='1') openChat(); }catch(e){}
     })();
   </script>
+
+  <script async src="https://www.tiktok.com/embed.js"></script>
