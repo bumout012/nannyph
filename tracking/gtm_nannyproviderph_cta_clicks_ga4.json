@@ -1,6 +1,6 @@
 {
   "container_name": "NannyProviderPH - CTA Clicks (Sample)",
-  "notes": "Sample structure for GA4 event via Custom Event cta_click.",
+  "notes": "Sample GA4 event via Custom Event cta_click.",
   "ga4_measurement_id": "G-2Y3XFZ1LN7",
   "triggers": [
     {

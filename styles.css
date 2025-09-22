@@ -52,18 +52,19 @@ a{color:var(--brand);text-decoration:none}
 .cta-banner{background:#0b4f96;color:#fff;border-radius:16px;padding:24px;margin:34px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .cta-banner .btn{background:#fff;color:#0b4f96}
 
-.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.team-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
-.team-card img{width:100%;height:220px;object-fit:cover;border-radius:10px;background:#eef2f7}
-.team-card h3{margin:10px 0 4px}
-.team-card p{margin:0;color:var(--muted)}
-
 .map-wrap iframe{border:0}
 
+/* Home hero image (cover crop) */
 .image-band{margin:20px 0;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
 .image-band img{display:block;width:100%;height:500px;object-fit:cover;object-position:center 30%}
+
+/* Mission page override (fit-to-screen) */
+.image-band.fit img{height:auto;max-width:100%;object-fit:contain}
+
+/* Responsive */
 @media (max-width: 900px){
   .hero{grid-template-columns:1fr}
-  .grid,.process,.testimonials,.team-grid{grid-template-columns:1fr}
+  .grid,.process,.testimonials{grid-template-columns:1fr}
   .image-band img{height:300px;object-position:center 30%}
+  .image-band.fit img{height:auto}
 }
