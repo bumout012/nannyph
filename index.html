@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NannyProvider.PH — Custom Form</title>
+  <title>NannyProvider.PH — Form</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <!-- GA4 -->
@@ -31,7 +31,6 @@
         <a href="welcome.html">Home</a>
         <a href="mission.html">Mission and Vision</a>
         <a href="contact.html">Contact</a>
-        <a href="team.html">Team</a>
       </nav>
     </div>
   </header>
@@ -49,7 +48,7 @@
         <div class="field"><label>Phone *</label><input name="phone" required></div>
         <div class="field"><label>Email *</label><input type="email" name="email" required></div>
         <div class="field"><label>Other comments</label><textarea name="comments"></textarea></div>
-        <button class="btn" type="submit">Submit</button>
+        <button class="btn" type="submit" data-cta="form_client_submit">Submit</button>
       </form>
     </section>
 
@@ -65,10 +64,11 @@
         <div class="field"><label>Numero *</label><input name="numero" required></div>
         <div class="field"><label>Email</label><input type="email" name="email"></div>
         <div class="field"><label>Iba pang komento</label><textarea name="comments"></textarea></div>
-        <button class="btn" type="submit">Isumite</button>
+        <button class="btn" type="submit" data-cta="form_jobseeker_submit">Isumite</button>
       </form>
     </section>
   </main>
+
   <footer class="wrap footer">
     <div class="footer-inner">
       <small>&copy; NannyProvider.PH — DOLE PEA LICENSE NO. M-23-00-016</small>
@@ -99,61 +99,10 @@
     document.addEventListener('DOMContentLoaded', function(){
       document.querySelectorAll('form').forEach(function(f){
         var next = f.querySelector('input[name="_next"]');
-        if(next){ try{ next.value = new URL(next.value || 'thank-you.html', window.location.href).href; }catch(e){} }
-        f.addEventListener('submit', function(e){
-          if(!f.checkValidity()){ e.preventDefault(); f.reportValidity(); }
-        });
+        if(next){ try{ next.value = new URL(next.value || 'thank-you.html', location.href).href; }catch(e){} }
+        f.addEventListener('submit', function(e){ if(!f.checkValidity()){ e.preventDefault(); f.reportValidity(); } });
       });
     });
   </script>
 </body>
 </html>
-
-  <!-- NP Support Chat Widget -->
-  <div id="np-chat-launcher" class="np-chat-launcher" role="button" aria-label="Open support chat" data-cta="chat_open">Help</div>
-  <div id="np-chat-panel" class="np-chat-panel" aria-hidden="true">
-    <div class="np-chat-header">
-      <strong>Need help?</strong>
-      <button class="np-chat-close" type="button" aria-label="Close chat">&times;</button>
-    </div>
-    <div class="np-chat-body">
-      <div class="np-chat-welcome"><p>Hi! Send us a message and we'll reply by email.</p></div>
-      <form id="np-chat-form" action="https://formsubmit.co/nanny.provider1@gmail.com" method="POST" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">
-        <input type="hidden" name="_subject" value="NannyProvider.PH — Support Chat Message">
-        <input type="hidden" name="_next" value="thank-you.html">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="text" name="_honey" style="display:none">
-        <input type="hidden" name="page" value="" id="np-chat-page">
-        <input type="hidden" name="timestamp" value="" id="np-chat-time">
-        <div class="field"><label for="np_chat_name">Name *</label><input id="np_chat_name" name="name" required></div>
-        <div class="field"><label for="np_chat_email">Email *</label><input id="np_chat_email" name="email" type="email" required></div>
-        <div class="field"><label for="np_chat_msg">Message *</label><textarea id="np_chat_msg" name="message" required placeholder="Type your question..."></textarea></div>
-        <button class="btn" type="submit" data-cta="chat_send">Send</button>
-        <div class="tiny">We’ll reply to your email. By sending, you agree to be contacted about your inquiry.</div>
-      </form>
-    </div>
-  </div>
-  <script>
-    (function(){
-      var launcher = document.getElementById('np-chat-launcher');
-      var panel = document.getElementById('np-chat-panel');
-      var closeBtn = panel ? panel.querySelector('.np-chat-close') : null;
-      var form = document.getElementById('np-chat-form');
-      var nameEl = document.getElementById('np_chat_name');
-      var emailEl = document.getElementById('np_chat_email');
-      var msgEl = document.getElementById('np_chat_msg');
-      var pageEl = document.getElementById('np-chat-page');
-      var timeEl = document.getElementById('np-chat-time');
-      function setAbsNext(){ var next = form && form.querySelector('input[name="_next"]'); if(next){ try{ next.value = new URL(next.value || 'thank-you.html', location.href).href; }catch(e){} } }
-      function saveDraft(){ try { localStorage.setItem('np_chat_name', nameEl.value || ''); localStorage.setItem('np_chat_email', emailEl.value || ''); localStorage.setItem('np_chat_msg', msgEl.value || ''); } catch(e){} }
-      function loadDraft(){ try { nameEl.value = localStorage.getItem('np_chat_name') || ''; emailEl.value = localStorage.getItem('np_chat_email') || ''; msgEl.value = localStorage.getItem('np_chat_msg') || ''; } catch(e){} }
-      function setMeta(){ if(pageEl) pageEl.value = location.href; if(timeEl) timeEl.value = new Date().toISOString(); }
-      function openChat(){ if(!panel) return; panel.setAttribute('aria-hidden','false'); panel.classList.add('open'); try{ localStorage.setItem('np_chat_open','1'); }catch(e){}; if(window.dataLayer){ window.dataLayer.push({event:'cta_click', cta_id:'chat_open', page_location:location.href, page_title:document.title}); } }
-      function closeChat(){ if(!panel) return; panel.setAttribute('aria-hidden','true'); panel.classList.remove('open'); try{ localStorage.removeItem('np_chat_open'); }catch(e){} }
-      if(launcher) launcher.addEventListener('click', openChat, {passive:true});
-      if(closeBtn) closeBtn.addEventListener('click', closeChat, {passive:true});
-      if(form){ setAbsNext(); setMeta(); loadDraft(); nameEl.addEventListener('input', saveDraft); emailEl.addEventListener('input', saveDraft); msgEl.addEventListener('input', saveDraft); form.addEventListener('submit', function(){ saveDraft(); if(window.dataLayer){ window.dataLayer.push({event:'cta_click', cta_id:'chat_send', page_location:location.href, page_title:document.title}); } }); }
-      try{ if(localStorage.getItem('np_chat_open')==='1') openChat(); }catch(e){}
-    })();
-  </script>

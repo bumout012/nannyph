@@ -16,14 +16,17 @@ a{color:var(--brand);text-decoration:none}
 .footer{padding:24px 0;color:var(--muted)}
 .footer-inner{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
 
-.hero{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;padding:36px 0}
-.eyebrow{color:var(--brand);font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.9rem;margin-bottom:6px}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;padding:24px 0}
+.eyebrow{color:var(--brand);font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.9rem}
 .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0 6px}
-.btn{display:inline-block;background:var(--brand);color:#fff;padding:12px 16px;border-radius:12px;font-weight:600}
+.btn{display:inline-block;background:var(--brand);color:#fff;padding:12px 16px;border-radius:12px;font-weight:600;border:0;cursor:pointer;transition:transform .12s ease, box-shadow .12s ease, opacity .12s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,0,0,.08)}
 .btn.secondary{background:#111;color:#fff}
 .btn.ghost{background:#fff;color:#0b4f96;border:1px solid var(--line)}
-.badges{display:flex;gap:10px;margin:10px 0;flex-wrap:wrap}
-.badge{background:var(--card);border:1px dashed var(--line);color:#374151;border-radius:999px;padding:6px 10px;font-size:.9rem}
+.btn.ghost:hover{opacity:.9}
+
+.badges{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+.badge{background:var(--card);border:1px dashed var(--line);color:#374151;border-radius:999px;padding:8px 12px;font-size:.9rem}
 
 .form-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.04)}
 .field{display:flex;flex-direction:column;gap:6px;margin:10px 0}
@@ -31,15 +34,15 @@ a{color:var(--brand);text-decoration:none}
 .field textarea{min-height:84px;resize:vertical}
 .tiny{font-size:.9rem;color:var(--muted);margin-top:8px}
 
-.process{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:26px 0}
-.step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;position:relative}
-.step .n{position:absolute;top:14px;right:16px;background:var(--ring);color:#1e3a8a;border-radius:999px;font-weight:700;padding:4px 10px}
-
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
 .card h3{margin:0 0 6px}
 .card p{margin:6px 0 0;color:var(--muted)}
 .card .go{margin-top:12px;display:inline-block}
+
+.process{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:26px 0}
+.step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;position:relative}
+.step .n{position:absolute;top:14px;right:16px;background:var(--ring);color:#1e3a8a;border-radius:999px;font-weight:700;padding:4px 10px}
 
 .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:26px 0}
 .quote{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
@@ -48,7 +51,6 @@ a{color:var(--brand);text-decoration:none}
 
 .cta-banner{background:#0b4f96;color:#fff;border-radius:16px;padding:24px;margin:34px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .cta-banner .btn{background:#fff;color:#0b4f96}
-.cta-banner .btn:hover{transform:translateY(-1px);box-shadow:0 6px 14px rgba(0,0,0,.12)}
 
 .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .team-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
@@ -56,17 +58,12 @@ a{color:var(--brand);text-decoration:none}
 .team-card h3{margin:10px 0 4px}
 .team-card p{margin:0;color:var(--muted)}
 
+.map-wrap iframe{border:0}
+
+.image-band{margin:20px 0;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.image-band img{display:block;width:100%;height:500px;object-fit:cover;object-position:center 30%}
 @media (max-width: 900px){
   .hero{grid-template-columns:1fr}
   .grid,.process,.testimonials,.team-grid{grid-template-columns:1fr}
+  .image-band img{height:300px;object-position:center 30%}
 }
-
-/* Support Chat Widget */
-.np-chat-launcher{position:fixed; right:20px; bottom:20px; z-index:60; background:#0b4f96; color:#fff; border-radius:999px; padding:12px 16px; font-weight:700; box-shadow:0 10px 24px rgba(0,0,0,.18); cursor:pointer; user-select:none}
-.np-chat-panel{position:fixed; right:16px; bottom:80px; z-index:60; width:360px; max-width:calc(100vw - 32px); background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:0 18px 38px rgba(0,0,0,.18); transform:translateY(12px); opacity:0; visibility:hidden; transition:all .2s ease}
-.np-chat-panel.open{ transform:translateY(0); opacity:1; visibility:visible }
-.np-chat-header{ display:flex; align-items:center; justify-content:space-between; gap:8px; padding:12px 14px; border-bottom:1px solid var(--line); background:var(--bg); border-radius:16px 16px 0 0}
-.np-chat-close{ background:transparent; border:0; font-size:20px; line-height:1; cursor:pointer; color:#374151 }
-.np-chat-body{ padding:14px }
-.np-chat-body .field{ margin:8px 0 }
-@media (max-width: 520px){ .np-chat-panel{ right:8px; left:8px; width:auto } .np-chat-launcher{ right:12px; bottom:12px } }

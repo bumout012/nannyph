@@ -31,11 +31,9 @@
         <a href="welcome.html">Home</a>
         <a href="mission.html">Mission and Vision</a>
         <a href="contact.html">Contact</a>
-        <a href="team.html">Team</a>
       </nav>
     </div>
   </header>
-
 
   <main class="wrap">
     <section class="card">
@@ -50,7 +48,7 @@
         <div class="field"><label>Phone *</label><input name="phone" required></div>
         <div class="field"><label>Email *</label><input type="email" name="email" required></div>
         <div class="field"><label>Other comments</label><textarea name="comments"></textarea></div>
-        <button class="btn" type="submit">Submit</button>
+        <button class="btn" type="submit" data-cta="custom_client_submit">Submit</button>
       </form>
     </section>
 
@@ -66,48 +64,17 @@
         <div class="field"><label>Numero *</label><input name="numero" required></div>
         <div class="field"><label>Email</label><input type="email" name="email"></div>
         <div class="field"><label>Iba pang komento</label><textarea name="comments"></textarea></div>
-        <button class="btn" type="submit">Isumite/Submit</button>
+        <button class="btn" type="submit" data-cta="custom_jobseeker_submit">Isumite</button>
       </form>
     </section>
   </main>
+
   <footer class="wrap footer">
     <div class="footer-inner">
       <small>&copy; NannyProvider.PH — DOLE PEA LICENSE NO. M-23-00-016</small>
       <small>206 Casa Susana Building, 1121 Pedro Gil St., Paco Manila • Daily 9:00 AM — 6:00 PM</small>
     </div>
   </footer>
-
-  <script>
-    // Minimal client-side guard to avoid empty posts and surface browser errors neatly
-    function npValidate(e){
-      const form = e.target;
-      if(!form.checkValidity()){
-        e.preventDefault();
-        form.reportValidity();
-      }
-    }
-    document.addEventListener('DOMContentLoaded', function(){
-      document.querySelectorAll('form').forEach(f => {
-        f.addEventListener('submit', npValidate);
-      });
-    });
-  </script>
-
-  <script>
-    // Ensure _next points to an absolute URL for reliable redirection after submit
-    document.addEventListener('DOMContentLoaded', function(){
-      document.querySelectorAll('form').forEach(function(f){
-        const next = f.querySelector('input[name="_next"]');
-        if(next){
-          try{
-            const abs = new URL(next.value || 'thank-you.html', window.location.href).href;
-            next.value = abs;
-          }catch(e){ /* no-op */ }
-        }
-      });
-    });
-  </script>
-
   <script>
     (function(){
       window.dataLayer = window.dataLayer || [];
@@ -123,9 +90,19 @@
             page_title: document.title,
             page_location: location.href
           });
-        } catch(err){/* noop */}
+        } catch(err){}
       }, {passive:true});
     })();
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('form').forEach(function(f){
+        var next = f.querySelector('input[name="_next"]');
+        if(next){ try{ next.value = new URL(next.value || 'thank-you.html', location.href).href; }catch(e){} }
+        f.addEventListener('submit', function(e){ if(!f.checkValidity()){ e.preventDefault(); f.reportValidity(); } });
+      });
+    });
   </script>
 </body>
 </html>

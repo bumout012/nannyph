@@ -1,13 +1,12 @@
 {
   "container_name": "NannyProviderPH - CTA Clicks (Sample)",
-  "notes": "This is a simplified sample. If import fails in GTM, follow the manual setup in README.",
+  "notes": "Sample structure for GA4 event via Custom Event cta_click.",
   "ga4_measurement_id": "G-2Y3XFZ1LN7",
   "triggers": [
     {
       "name": "CTA Click",
       "type": "custom_event",
-      "event_name": "cta_click",
-      "filter": []
+      "event_name": "cta_click"
     }
   ],
   "tags": [
