@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NannyProvider.PH — Home</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root{ --bg:#f8f8f6; --card:#ffffff; --ink:#1f2937; --muted:#6b7280; --brand:#0a66c2; --ring:#dbeafe; --line:#e5e7eb; }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    a{color:var(--brand);text-decoration:none}
+    .wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+
+    .site-header{position:sticky;top:0;z-index:30;background:var(--card);border-bottom:1px solid var(--line)}
+    .header-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .logo{font-weight:800;margin:0}
+    .nav{display:flex;gap:14px;flex-wrap:wrap}
+    .nav a{padding:8px 10px;border-radius:8px}
+    .nav a[aria-current="page"]{background:var(--ring)}
+
+    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .process{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:26px 0}
+    .step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;position:relative}
+    .step .n{position:absolute;top:14px;right:16px;background:var(--ring);color:#1e3a8a;border-radius:999px;font-weight:700;padding:4px 10px}
+    .btn{display:inline-block;background:var(--brand);color:#fff;padding:12px 16px;border-radius:12px;font-weight:600;border:0;cursor:pointer}
+    .form-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.04)}
+    .field{display:flex;flex-direction:column;gap:6px;margin:10px 0}
+    .field input,.field select,.field textarea{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit}
+    .field textarea{min-height:84px;resize:vertical}
+    .cta-banner{background:#0b4f96;color:#fff;border-radius:16px;padding:24px;margin:34px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .cta-banner .btn{background:#fff;color:#0b4f96}
+
+    /* Aspect ratio image: 805x402 (~2:1) */
+    .image-band{margin:20px 0;border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:805/402;}
+    .image-band img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
+
+    .hero{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;padding:24px 0}
+
+    .footer{padding:24px 0;color:var(--muted)}
+    .footer-inner{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+
+    @media (max-width:900px){
+      .grid,.process{grid-template-columns:1fr}
+      .hero{grid-template-columns:1fr}
+      .image-band{aspect-ratio:auto;}
+      .image-band img{height:300px;object-position:center 30%}
+    }
+  </style>
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y3XFZ1LN7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2Y3XFZ1LN7');
+  </script>
+  <!-- GTM -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+  var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+  j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl; f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-T3H6DRN4');</script>
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H6DRN4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <header class="site-header">
+    <div class="wrap header-row">
+      <h1 class="logo"><a href="index.html" style="color:#111;text-decoration:none;">Nanny Provider PH</a></h1>
+      <nav class="nav">
+        <a href="index.html">Form</a>
+        <a href="welcome.html" aria-current="page">Home</a>
+        <a href="mission.html">Mission and Vision</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- Welcome to NannyProvider.PH -->
+    <section class="card">
+      <h2>Welcome to NannyProvider.PH!</h2>
+      <h3>Employment Agency!</h3>
+      <p><strong>DOLE PEA LICENSE NO. M-23-00-016</strong></p>
+      <p>Hello everyone! On behalf of NannyProvider.PH, I would like to introduce our local employment agency located at 206 Casa Susana Building, 1121 Pedro Gil St., Paco Manila.</p>
+    </section>
+
+    <!-- Services -->
+    <section>
+      <h2 style="margin:8px 0 12px">Services</h2>
+      <div class="grid">
+        <article class="card"><h3>Nannies</h3><p>Care for infants and children with dependable, trained staff.</p><a class="btn" href="custom-form.html" data-cta="svc_nannies">Hire a nanny</a></article>
+        <article class="card"><h3>Housekeepers / Maids</h3><p>Reliable household help for daily cleaning and chores.</p><a class="btn" href="custom-form.html" data-cta="svc_maids">Hire a maid</a></article>
+        <article class="card"><h3>Cook / All-around</h3><p>Skilled help for cooking and multi-role household support.</p><a class="btn" href="custom-form.html" data-cta="svc_cook">Inquire now</a></article>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section>
+      <h2 style="margin:24px 0 12px">How it works</h2>
+      <div class="process">
+        <div class="step"><span class="n">1</span><h3>Tell us your needs</h3><p>Use the quick form or the full form.</p></div>
+        <div class="step"><span class="n">2</span><h3>We match quickly</h3><p>Our team screens and matches candidates to your requirements.</p></div>
+        <div class="step"><span class="n">3</span><h3>Start with confidence</h3><p>We assist with coordination and after-care support.</p></div>
+      </div>
+    </section>
+
+    <!-- Agency Image (aspect 805x402) -->
+    <section class="image-band">
+      <img src="https://lh3.googleusercontent.com/pw/AP1GczO5_KcU7oVi9ukXeg8dB1o0QgyLPHutsja_yX6TjQgFOcnRujU68MluvyTrb3WfKvRJilTA15OAD5kWBC9_B_JV7asfJjHnfQF-Ns2XOyZQUPBm0UqkkmAHbCF7TaCyU1xxZtNNb8JBQ42A5WQMvMiO=w677-h902-s-no-gm?authuser=1" alt="NannyProvider.PH agency image">
+    </section>
+
+    <!-- TikTok (left) + Quick Inquiry (right) -->
+    <section class="hero">
+      <div>
+        <div class="card">
+          <h3 style="margin:0 0 8px">From our TikTok</h3>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px">
+            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@nannyprovider.ph" data-unique-id="nannyprovider.ph" data-embed-type="creator" style="max-width:360px;min-width:220px">
+              <section><a target="_blank" href="https://www.tiktok.com/@nannyprovider.ph">@nannyprovider.ph</a></section>
+            </blockquote>
+          </div>
+          <p style="margin-top:10px"><a class="btn" href="https://www.tiktok.com/@nannyprovider.ph" target="_blank" rel="noopener" data-cta="tiktok_watch">Watch on TikTok</a></p>
+        </div>
+      </div>
+      <div>
+        <div class="form-card" aria-label="Quick Inquiry">
+          <h3 style="margin:0 0 8px">Quick Inquiry</h3>
+          <p style="margin:0 0 8px;color:#6b7280">Send a brief message and our staff will reach out.</p>
+          <form id="hero-form" action="https://formsubmit.co/nanny.provider1@gmail.com" method="POST" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" name="_next" value="thank-you.html">
+            <input type="hidden" name="_subject" value="NannyProvider.PH — Quick Inquiry">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="_honey" style="display:none">
+            <div class="field">
+              <label for="h_type">I am *</label>
+              <select id="h_type" name="type" required>
+                <option value="" disabled selected>Choose one</option>
+                <option value="client_looking_for_maid">Looking for a maid</option>
+                <option value="jobseeker">Jobseeker</option>
+              </select>
+            </div>
+            <div class="field"><label for="h_name">Name *</label><input id="h_name" name="name" required></div>
+            <div class="field"><label for="h_phone">Phone *</label><input id="h_phone" name="phone" required></div>
+            <div class="field"><label for="h_email">Email *</label><input type="email" id="h_email" name="email" required></div>
+            <div class="field"><label for="h_comments">Other comments</label><textarea id="h_comments" name="comments"></textarea></div>
+            <button class="btn" type="submit" data-cta="hero_submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ready to begin CTA -->
+    <section class="cta-banner">
+      <div>
+        <h2 style="margin:0 0 6px">Ready to begin?</h2>
+        <p style="margin:0;color:#e8eef9">Complete the short form and our staff will contact you soonest.</p>
+      </div>
+      <a class="btn" href="custom-form.html" data-cta="go_full_form">Go to Full Form</a>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <div class="footer-inner">
+      <small>&copy; NannyProvider.PH — DOLE PEA LICENSE NO. M-23-00-016</small>
+      <small>206 Casa Susana Building, 1121 Pedro Gil St., Paco Manila • Daily 9:00 AM — 6:00 PM</small>
+    </div>
+  </footer>
+
+  <!-- TikTok JS -->
+  <script async src="https://www.tiktok.com/embed.js"></script>
+
+  <!-- CTA click tracking + form helpers -->
+  <script>
+    (function(){
+      window.dataLayer = window.dataLayer || [];
+      document.addEventListener('click', function(e){
+        var a = e.target.closest && e.target.closest('a[data-cta]');
+        if(!a) return;
+        try {
+          window.dataLayer.push({
+            event: 'cta_click',
+            cta_id: a.getAttribute('data-cta') || '',
+            cta_href: a.getAttribute('href') || '',
+            cta_text: (a.textContent || '').trim(),
+            page_title: document.title,
+            page_location: location.href
+          });
+        } catch(err){}
+      }, {passive:true});
+
+      // Ensure absolute _next and basic validation
+      var f = document.getElementById('hero-form');
+      if(f){
+        var next = f.querySelector('input[name="_next"]');
+        if(next){ try{ next.value = new URL(next.value || 'thank-you.html', location.href).href; }catch(e){} }
+        f.addEventListener('submit', function(e){ if(!f.checkValidity()){ e.preventDefault(); f.reportValidity(); } });
+      }
+    })();
+  </script>
+</body>
+</html>
