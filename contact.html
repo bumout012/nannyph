@@ -35,8 +35,18 @@
     </div>
   </header>
 
+  <style>
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url('https://www.dropbox.com/scl/fi/nqzbd51stwv56f3xkdpdy/IMG_8018.jpeg?rlkey=jei3m2xpzj6nsat5743cwbi1u&st=8vi9shwk&raw=1') center/cover no-repeat;
+      opacity: 0.6; /* 60% */
+      z-index: -1;
+    }
+  </style>
   <main class="wrap">
-    <section class="card">
+    <section class="card" style="background:rgba(255,255,255,0.92)">
       <h2>Contact Us</h2>
       <p><strong>Our address</strong><br>206 Casa Susana Building, 1121 Pedro Gil St., Paco Manila</p>
       <p><strong>Open hours</strong><br>Daily 9:00 AM — 6:00 PM</p>

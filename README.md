@@ -1,22 +1,19 @@
-# NannyProvider.PH — Deployment Bundle (Single TikTok link)
+# NannyProvider.PH — Full Deploy Bundle (BG + GA4/GTM)
 
-## Pages
-- `welcome.html` (Home — with TikTok embed + Quick Inquiry)
-- `mission.html` (Mission and Vision — *fit-to-screen* image, no cropping)
-- `contact.html`
-- `index.html` and `custom-form.html` (forms POST to FormSubmit → `thank-you.html`)
-- `thank-you.html` (overlay background, 30s redirect + "Return to Home" CTA)
-- `styles.css`
-- `tracking/gtm_nannyproviderph_cta_clicks_ga4.json`
-- `CNAME` (www.nannyprovider.com.ph)
+**What’s new**
+- Background image applied to **forms** (`index.html` 75%, `custom-form.html` 75%) and **Contact** (60%).
+- Mission page uses **fit-to-screen** image (no cropping).
+- Styling unified across all pages (system UI stack).
 
-## Tracking
-- GA4: G-2Y3XFZ1LN7 (in `<head>`)
-- GTM: GTM-T3H6DRN4 (in `<head>` + `<body>` noscript)
-- CTA clicks via `data-cta` attributes site-wide
+**Tracking**
+- GA4: G-2Y3XFZ1LN7 in head on all pages.
+- GTM: GTM-T3H6DRN4 in head + noscript right after body on all pages.
+- CTA click tracking via small dataLayer push (footer script).
 
-## Social banner
-- Footer banner now uses **single TikTok** link only:
-  - `https://www.tiktok.com/@nannyprovider.ph`
-- Banner included on **Home**, **Mission**, **Contact** (forms and thank-you excluded).
-
+**Files**
+- welcome.html, mission.html, contact.html
+- index.html, custom-form.html, thank-you.html
+- styles.css
+- tracking/gtm_nannyproviderph_cta_clicks_ga4.json
+- CNAME (www.nannyprovider.com.ph)
+- README.md
