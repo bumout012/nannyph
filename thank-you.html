@@ -33,7 +33,6 @@
         <a href="index.html">Home</a>
         <a href="mission.html">Mission and Vision</a>
         <a href="contact.html">Contact</a>
-        <a href="welcome.html">Welcome</a>
       </nav>
     </div>
   </header>
@@ -43,7 +42,7 @@
       <h1>Maraming salamat po sa pagtugon!</h1>
       <p>Maaari pong maghintay at isa po sa aming staff ang tatawag sa inyo sa lalong madaling panahon.</p>
       <p><em>Please wait and someone from our staff will contact you soonest.</em></p>
-      <p>You will be redirected to Home in 30 seconds…</p>
+      <p>Redirecting to Home in <span id="np-countdown" class="countdown" aria-live="polite">30</span> seconds…</p>
       <p style="margin-top:16px"><a class="btn" href="index.html" data-cta="return_home">Return to Home</a></p>
     </section>
   </main>
@@ -52,7 +51,20 @@
       background:linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),url('https://images.unsplash.com/photo-1604881991720-f91add269bed?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat;
       z-index:-1;}
   </style>
-  <script>setTimeout(function(){ location.href='index.html'; }, 30000);</script>
+  <script>
+    (function(){
+      var secs = 30, el = document.getElementById('np-countdown');
+      function tick(){
+        secs = Math.max(0, secs-1);
+        if(el) el.textContent = String(secs);
+        if(secs <= 0) { location.href = 'index.html'; return; }
+      }
+      // start ticking
+      setInterval(tick, 1000);
+      // safety redirect after 31s in case interval is throttled
+      setTimeout(function(){ location.href = 'index.html'; }, 31000);
+    })();
+  </script>
 
   <footer class="wrap footer">
     <div class="footer-inner">

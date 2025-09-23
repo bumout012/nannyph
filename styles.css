@@ -51,6 +51,9 @@ a{color:var(--brand);text-decoration:none}
 /* Mission page override (fit-to-screen) */
 .image-band.fit img{height:auto;max-width:100%;object-fit:contain}
 
+/* Countdown style */
+.countdown{display:inline-block;background:rgba(255,255,255,.9);padding:6px 10px;border-radius:10px;margin-left:6px;color:#111;font-weight:700}
+
 /* Responsive */
 @media (max-width: 900px){
   .hero{grid-template-columns:1fr}
