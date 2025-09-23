@@ -27,7 +27,6 @@
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H6DRN4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
   <header class="site-header">
     <div class="wrap header-row">
       <h1 class="logo"><a href="index.html" style="color:#111;text-decoration:none;">Nanny Provider PH</a></h1>
@@ -41,14 +40,20 @@
   </header>
 
   <style>
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: url('https://www.dropbox.com/scl/fi/nqzbd51stwv56f3xkdpdy/IMG_8018.jpeg?rlkey=jei3m2xpzj6nsat5743cwbi1u&st=8vi9shwk&raw=1') center/cover no-repeat;
-      opacity: 0.6; /* 60% */
-      z-index: -1;
-    }
+    
+/* Desktop-safe background layer */
+body { background: transparent !important; position: relative; z-index: 0; }
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url('https://www.dropbox.com/scl/fi/nqzbd51stwv56f3xkdpdy/IMG_8018.jpeg?rlkey=jei3m2xpzj6nsat5743cwbi1u&st=8vi9shwk&raw=1') center/cover no-repeat;
+  opacity: 0.6;
+  z-index: 0;
+  pointer-events: none;
+}
+.site-header, main, .footer { position: relative; z-index: 1; }
+
   </style>
   <main class="wrap">
     <section class="card" style="background:rgba(255,255,255,0.92)">
