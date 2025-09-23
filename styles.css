@@ -28,12 +28,12 @@ a{color:var(--brand);text-decoration:none}
 .field{display:flex;flex-direction:column;gap:6px;margin:10px 0}
 .field input,.field select,.field textarea{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit}
 .field textarea{min-height:84px;resize:vertical}
-.tiny{font-size:.9rem;color:var(--muted);margin-top:8px}
+.tiny{font-size:.9rem;color:#6b7280;margin-top:8px}
 
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin:16px 0}
 .card h3{margin:0 0 6px}
-.card p{margin:6px 0 0;color:var(--muted)}
+.card p{margin:6px 0 0;color:#6b7280}
 
 .process{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:26px 0}
 .step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;position:relative}

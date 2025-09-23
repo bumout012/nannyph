@@ -26,8 +26,6 @@
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H6DRN4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H6DRN4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <header class="site-header">
     <div class="wrap header-row">
       <h1 class="logo"><a href="index.html" style="color:#111;text-decoration:none;">Nanny Provider PH</a></h1>
@@ -35,6 +33,7 @@
         <a href="index.html" aria-current="page">Home</a>
         <a href="mission.html">Mission and Vision</a>
         <a href="contact.html">Contact</a>
+        <a href="welcome.html">Welcome</a>
       </nav>
     </div>
   </header>
@@ -84,7 +83,7 @@
       <div>
         <div class="form-card" aria-label="Quick Inquiry">
           <h3 style="margin:0 0 8px">Quick Inquiry</h3>
-          <p style="margin:0 0 8px;color:#6b7280">Send a brief message and our staff will reach out.</p>
+          <p class="tiny">Send a brief message and our staff will reach out.</p>
           <form id="hero-form" action="https://formsubmit.co/nanny.provider1@gmail.com" method="POST" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">
             <input type="hidden" name="_next" value="thank-you.html">
             <input type="hidden" name="_subject" value="NannyProvider.PH — Quick Inquiry">
@@ -132,6 +131,7 @@
     </section>
 
   </main>
+  <script async src="https://www.tiktok.com/embed.js"></script>
 
   <footer class="wrap footer">
     <div class="footer-inner">
@@ -159,15 +159,26 @@
     })();
   </script>
 
-  <script async src="https://www.tiktok.com/embed.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function(){
-      var f = document.getElementById('hero-form');
-      if(!f) return;
-      var next = f.querySelector('input[name="_next"]');
-      if(next){ try{ next.value = new URL(next.value || 'thank-you.html', location.href).href; }catch(e){} }
-      f.addEventListener('submit', function(e){ if(!f.checkValidity()){ e.preventDefault(); f.reportValidity(); } });
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('form[action*="formsubmit.co"]').forEach(function (f) {
+      try {
+        f.setAttribute('method', 'POST');
+        var next = f.querySelector('input[name="_next"]');
+        if (!next) {
+          next = document.createElement('input');
+          next.type = 'hidden';
+          next.name = '_next';
+          f.appendChild(next);
+        }
+        try { next.value = new URL(next.value || 'thank-you.html', window.location.href).href; } catch (e) {}
+        f.addEventListener('submit', function (e) {
+          if (!f.checkValidity()) { e.preventDefault(); f.reportValidity(); }
+        });
+      } catch (err) {}
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>
