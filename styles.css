@@ -39,11 +39,6 @@ a{color:var(--brand);text-decoration:none}
 .step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;position:relative}
 .step .n{position:absolute;top:14px;right:16px;background:var(--ring);color:#1e3a8a;border-radius:999px;font-weight:700;padding:4px 10px}
 
-.testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:26px 0}
-.quote{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
-.quote p{margin:0 0 8px}
-.quote small{color:var(--muted)}
-
 .cta-banner{background:#0b4f96;color:#fff;border-radius:16px;padding:24px;margin:34px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .cta-banner .btn{background:#fff;color:#0b4f96}
 
@@ -59,7 +54,7 @@ a{color:var(--brand);text-decoration:none}
 /* Responsive */
 @media (max-width: 900px){
   .hero{grid-template-columns:1fr}
-  .grid,.process,.testimonials{grid-template-columns:1fr}
+  .grid,.process{grid-template-columns:1fr}
   .image-band img{height:300px;object-position:center 30%}
   .image-band.fit img{height:auto}
 }
