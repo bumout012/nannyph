@@ -26,6 +26,7 @@
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H6DRN4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
   <header class="site-header">
     <div class="wrap header-row">
       <h1 class="logo"><a href="index.html" style="color:#111;text-decoration:none;">Nanny Provider PH</a></h1>
@@ -115,7 +116,6 @@
       <a class="btn" href="contact.html" data-cta="go_full_form">Go to Full Form</a>
     </section>
 
-    
     <section class="cta-banner">
       <div>
         <h2 style="margin:0 0 6px">Follow us</h2>
@@ -128,8 +128,8 @@
         <a class="btn ghost" href="https://www.instagram.com/nannyprovider.ph/" target="_blank" rel="noopener" data-cta="social_instagram">Instagram</a>
       </div>
     </section>
-
   </main>
+
   <script async src="https://www.tiktok.com/embed.js"></script>
 
   <footer class="wrap footer">
@@ -157,27 +157,73 @@
       }, {passive:true});
     })();
   </script>
+  <script defer src="np-help.js"></script>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('form[action*="formsubmit.co"]').forEach(function (f) {
-      try {
-        f.setAttribute('method', 'POST');
-        var next = f.querySelector('input[name="_next"]');
-        if (!next) {
-          next = document.createElement('input');
-          next.type = 'hidden';
-          next.name = '_next';
-          f.appendChild(next);
+  <script>
+    // GA4 + GTM unified tracking for CTAs and forms
+    (function(){
+      function track(evt, params){
+        try{
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push(Object.assign({event: evt}, params||{}));
+        }catch(e){}
+        try{
+          if(typeof window.gtag === 'function'){
+            window.gtag('event', evt, params || {});
+          }
+        }catch(e){}
+      }
+
+      // CTA clicks -> also send GA4 event (dataLayer handled elsewhere already)
+      document.addEventListener('click', function(e){
+        var a = e.target.closest && e.target.closest('a[data-cta]');
+        if(!a) return;
+        var payload = {
+          cta_id: a.getAttribute('data-cta') || '',
+          cta_href: a.getAttribute('href') || '',
+          cta_text: (a.textContent || '').trim(),
+          page_title: document.title,
+          page_location: location.href
+        };
+        track('cta_click', payload);
+      }, {passive:true});
+
+      // Form submissions
+      document.addEventListener('DOMContentLoaded', function(){
+        // Hero form on index (id=hero-form)
+        var hero = document.getElementById('hero-form');
+        if(hero){
+          hero.addEventListener('submit', function(){
+            var typeEl = hero.querySelector('[name="type"]');
+            var payload = {
+              form_id: 'hero_form',
+              form_name: 'Quick Inquiry',
+              page_title: document.title,
+              page_location: location.href,
+              user_type: typeEl ? (typeEl.value || '') : ''
+            };
+            track('hero_submit', payload);
+          });
         }
-        try { next.value = new URL(next.value || 'thank-you.html', window.location.href).href; } catch (e) {}
-        f.addEventListener('submit', function (e) {
-          if (!f.checkValidity()) { e.preventDefault(); f.reportValidity(); }
-        });
-      } catch (err) {}
-    });
-  });
-</script>
 
+        // All forms on contact page (detect by hidden _subject)
+        document.querySelectorAll('form').forEach(function(f){
+          f.addEventListener('submit', function(){
+            var subject = (f.querySelector('input[name="_subject"]') || {}).value || '';
+            var evt = 'form_submit';
+            if(/Client Inquiry/i.test(subject)) evt = 'form_client_submit';
+            if(/Jobseeker Application/i.test(subject)) evt = 'form_jobseeker_submit';
+            var payload = {
+              form_id: f.id || '',
+              form_name: subject || '',
+              page_title: document.title,
+              page_location: location.href
+            };
+            track(evt, payload);
+          });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

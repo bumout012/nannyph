@@ -40,10 +40,11 @@
   <main class="wrap">
     <section class="card">
       <h2>Our Mission</h2>
-      <p>At NannyProviderPH, we are dedicated to helping families find the best nannies and maids for their needs. Our mission is to provide high-quality and reliable services that make finding and hiring the right person easier and more efficient.</p>
-      <h2>Vision</h2>
-      <p>Dito sa NannyProviderPH, kami ay dedicated na makatulong sa mga Pamilya na mahanap ang pinaka magaling, mabait at maasahan na yaya or maid na inyong kailangan.</p>
-      <p>We are here to help you find the perfect fit for your family!</p>
+      <p>At NannyProvider.PH we are dedicated in helping every Filipino family in hiring the best and suitable maids and nannies for their family needs. Hiring a professional maids and nannies are one of the most significant decisions a family can make. This individual becomes more than just an employee- they are entrusted with your family members and to your children's wellbeing, growth, and daily care. At NannyProvider.PH we know that families are not only choosing local candidates but also exploring t...
+      <p>At NannyProvider.PH we would like you to provide also a high-quality, trustworthy, and reliable services that make finding and hiring the right maids and nannies that are easier, more efficient and productive.</p>
+      <h2>Our Vision</h2>
+      <p>Hiring a professional nanny is both a practical and deeply personal decision. The right candidates provide not only reliable household workers and childcare but also emotional support and development guidance for your family. We ensure that every family is matched with a nanny or maids who is qualified, trustworthy, and perfectly aligned with their needs. On the wellbeing of your family is at stake, there can be no compromise. Trust the experienced and professionalism, to guide you toward the pe...
+      <p>At NannyProvider.PH we build a long-term relationship. Successful placements extend beyond the initial hire. Open communication, regular feedback, and mutual respect foster a positive, long-term working relationship.</p>
     </section>
 
     <section class="image-band fit">
@@ -92,5 +93,72 @@
     })();
   </script>
 
+
+  <script>
+    // GA4 + GTM unified tracking for CTAs and forms
+    (function(){
+      function track(evt, params){
+        try{
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push(Object.assign({event: evt}, params||{}));
+        }catch(e){}
+        try{
+          if(typeof window.gtag === 'function'){
+            window.gtag('event', evt, params || {});
+          }
+        }catch(e){}
+      }
+
+      // CTA clicks -> also send GA4 event (dataLayer handled elsewhere already)
+      document.addEventListener('click', function(e){
+        var a = e.target.closest && e.target.closest('a[data-cta]');
+        if(!a) return;
+        var payload = {
+          cta_id: a.getAttribute('data-cta') || '',
+          cta_href: a.getAttribute('href') || '',
+          cta_text: (a.textContent || '').trim(),
+          page_title: document.title,
+          page_location: location.href
+        };
+        track('cta_click', payload);
+      }, {passive:true});
+
+      // Form submissions
+      document.addEventListener('DOMContentLoaded', function(){
+        // Hero form on index (id=hero-form)
+        var hero = document.getElementById('hero-form');
+        if(hero){
+          hero.addEventListener('submit', function(){
+            var typeEl = hero.querySelector('[name="type"]');
+            var payload = {
+              form_id: 'hero_form',
+              form_name: 'Quick Inquiry',
+              page_title: document.title,
+              page_location: location.href,
+              user_type: typeEl ? (typeEl.value || '') : ''
+            };
+            track('hero_submit', payload);
+          });
+        }
+
+        // All forms on contact page (detect by hidden _subject)
+        document.querySelectorAll('form').forEach(function(f){
+          f.addEventListener('submit', function(){
+            var subject = (f.querySelector('input[name="_subject"]') || {}).value || '';
+            var evt = 'form_submit';
+            if(/Client Inquiry/i.test(subject)) evt = 'form_client_submit';
+            if(/Jobseeker Application/i.test(subject)) evt = 'form_jobseeker_submit';
+            var payload = {
+              form_id: f.id || '',
+              form_name: subject || '',
+              page_title: document.title,
+              page_location: location.href
+            };
+            track(evt, payload);
+          });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

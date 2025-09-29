@@ -1,13 +1,10 @@
 
-:root{
-  --bg:#f8f8f6; --card:#ffffff; --ink:#1f2937; --muted:#6b7280;
-  --brand:#0a66c2; --ring:#dbeafe; --line:#e5e7eb;
-}
+:root{ --bg:#f8f8f6; --card:#ffffff; --ink:#1f2937; --muted:#6b7280; --brand:#0a66c2; --ring:#dbeafe; --line:#e5e7eb; }
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
 a{color:var(--brand);text-decoration:none}
 .wrap{max-width:1140px;margin:0 auto;padding:0 20px}
-.site-header{position:sticky;top:0;z-index:30;background:var(--card);border-bottom:1px solid var(--line)}
+.site-header{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid var(--line)}
 .header-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
 .logo{font-weight:800;margin:0}
 .nav{display:flex;gap:14px;flex-wrap:wrap}
@@ -16,48 +13,54 @@ a{color:var(--brand);text-decoration:none}
 .footer{padding:24px 0;color:var(--muted)}
 .footer-inner{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
 
-.hero{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;padding:24px 0}
-.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0 6px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
 .btn{display:inline-block;background:var(--brand);color:#fff;padding:12px 16px;border-radius:12px;font-weight:600;border:0;cursor:pointer;transition:transform .12s ease, box-shadow .12s ease, opacity .12s ease}
 .btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,0,0,.08)}
 .btn.secondary{background:#111;color:#fff}
 .btn.ghost{background:#fff;color:#0b4f96;border:1px solid var(--line)}
 .btn.ghost:hover{opacity:.9}
 
-.form-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.04)}
-.field{display:flex;flex-direction:column;gap:6px;margin:10px 0}
-.field input,.field select,.field textarea{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit}
-.field textarea{min-height:84px;resize:vertical}
-.tiny{font-size:.9rem;color:#6b7280;margin-top:8px}
-
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin:16px 0}
-.card h3{margin:0 0 6px}
-.card p{margin:6px 0 0;color:#6b7280}
-
 .process{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:26px 0}
 .step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;position:relative}
 .step .n{position:absolute;top:14px;right:16px;background:var(--ring);color:#1e3a8a;border-radius:999px;font-weight:700;padding:4px 10px}
 
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;padding:24px 0}
+.form-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.04)}
+.field{display:flex;flex-direction:column;gap:6px;margin:10px 0}
+.field input,.field select,.field textarea{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit}
+.field textarea{min-height:84px;resize:vertical}
+.tiny{font-size:.9rem;color:var(--muted)}
+
 .cta-banner{background:#0b4f96;color:#fff;border-radius:16px;padding:24px;margin:34px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.cta-banner .btn{background:#fff;color:#0b4f96}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
 
-.map-wrap iframe{border:0}
-
-/* Home hero image (cover crop) */
 .image-band{margin:20px 0;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
 .image-band img{display:block;width:100%;height:500px;object-fit:cover;object-position:center 30%}
 
-/* Mission page override (fit-to-screen) */
-.image-band.fit img{height:auto;max-width:100%;object-fit:contain}
+.map-wrap iframe{border:0}
 
-/* Countdown style */
-.countdown{display:inline-block;background:rgba(255,255,255,.9);padding:6px 10px;border-radius:10px;margin-left:6px;color:#111;font-weight:700}
-
-/* Responsive */
 @media (max-width: 900px){
-  .hero{grid-template-columns:1fr}
-  .grid,.process{grid-template-columns:1fr}
+  .grid,.process,.hero{grid-template-columns:1fr}
   .image-band img{height:300px;object-position:center 30%}
-  .image-band.fit img{height:auto}
+}
+
+/* Welcome splash */
+html.welcome, body.welcome { background: transparent; }
+body.welcome::before{
+  content:""; position:fixed; inset:0; z-index:-1;
+  background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+    url('https://www.dropbox.com/scl/fi/yeze502q3mnf537giafmk/bright-inviting-classroom-with-colorful-furniture-playful-decorations_862489-35919.jpg?rlkey=eb05cn5k6esez48yswqcyup5l&raw=1')
+    center/cover no-repeat fixed;
+}
+.hero-welcome { min-height: calc(100vh - 72px); display:flex; align-items:center; justify-content:center; padding:24px; }
+.welcome-card { background: rgba(255,255,255,.92); border:1px solid #e5e7eb; border-radius:16px; padding:28px; max-width:720px; margin:auto; text-align:center; }
+
+/* === Fix: prevent cropping on Mission page image (.image-band.fit) === */
+.image-band.fit img{
+  height: auto !important;
+  max-height: none !important;
+  width: 100%;
+  object-fit: contain !important;
+  object-position: center center !important;
 }
