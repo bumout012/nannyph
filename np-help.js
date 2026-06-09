@@ -92,7 +92,7 @@
   function handleAI(q){
     var ans='';
     if(/hour|open|close|time/.test(q))ans='We are open daily from 9:00 AM to 6:00 PM.';
-    else if(/address|where|located|location/.test(q))ans='Our address is 206 Casa Susana Building, 1121 Pedro Gil St., Paco Manila.';
+    else if(/address|where|located|location/.test(q))ans='Our address is Unit 14, Singalong Townhomes II, 1706 Singalong St., Paco Manila, Brgy 678, Manila City.';
     else if(/service|offer|nanny|maid|housekeep|cook/.test(q))ans='We offer Nannies, Housekeepers/Maids, and Cook/All-around support.';
     else if(/hire|start|begin/.test(q))ans='Begin by using the Quick Inquiry on Home or the forms on Contact.';
     else if(/jobseek|apply|trabaho|work/.test(q))ans='Jobseekers: please use the Jobseeker form on the Contact page.';
