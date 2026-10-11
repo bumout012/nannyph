@@ -64,3 +64,65 @@ body.welcome::before{
   object-fit: contain !important;
   object-position: center center !important;
 }
+
+
+/* Header logo and business name */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.brand-logo img {
+  display: block;
+  height: 42px;
+  width: auto;
+  max-width: 100px;
+  object-fit: contain;
+}
+
+.brand .logo {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.brand .logo a {
+  color: #111;
+  text-decoration: none;
+}
+
+.header-row {
+  gap: 16px;
+}
+
+@media (max-width: 700px) {
+  .header-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .brand .logo {
+    font-size: 18px;
+  }
+
+  .brand-logo img {
+    height: 34px;
+    max-width: 80px;
+  }
+
+  .nav {
+    gap: 4px;
+  }
+
+  .nav a {
+    padding: 6px 7px;
+  }
+}
